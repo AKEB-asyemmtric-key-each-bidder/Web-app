@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from "react"
+import React, { useEffect,useState } from 'react';
 import createAKEBContract from "./ABI/AKEB"
 import Web3 from "web3"
 
@@ -8,10 +7,29 @@ function App() {
   const [web3, setWeb3] = useState()
   const [address, setAddress] = useState()
   const [contract, setContract] = useState()
+  const [publicKey, setPublicKey] = useState()
 
-  console.log("Web3", web3)
-  console.log("address", address)
+  // console.log("Web3", web3)
+  // console.log("address", address)
   console.log("contract", contract)
+  console.log("public key", publicKey)
+
+  // useEffect(() => {
+  //   contract && submitPublicKey()
+  // }, [contract])
+
+  const onGetPublicKey = async () => {
+    const res = await contract.methods.getMyPublicKey().call()
+    console.log("res", res)
+    setPublicKey(res)
+  }
+
+  const submitPublicKey = async () => {
+    await contract.methods.submitPublicKeys(
+      address,
+      "Public-key"
+    ).send({from:address})
+  }
 
 
   const onConnect = async () => {
@@ -38,7 +56,12 @@ function App() {
   return (
     <div>
       Auction
+      <br />
       <button onClick={onConnect}>Connect</button>
+      <button onClick={onGetPublicKey}>Get public keys</button>
+      <div>
+        Public keys : {publicKey}
+      </div>
     </div>
     
   );
