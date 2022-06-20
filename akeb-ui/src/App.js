@@ -19,7 +19,14 @@ function App() {
   // }, [contract])
 
   const onGetPublicKey = async () => {
-    const res = await contract.methods.getMyPublicKey().call()
+    console.log("in onGetPublicKey")
+    const res = await contract.methods.getMyPublicKey().call(function (err, res) {
+      if (err) {
+        console.log("An error occured", err)
+        return
+      }
+      console.log("public key: ", res)
+      })
     console.log("res", res)
     setPublicKey(res)
   }
