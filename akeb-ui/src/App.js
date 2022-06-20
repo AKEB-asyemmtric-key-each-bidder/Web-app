@@ -1,14 +1,17 @@
 import React from 'react';
 import { useState } from "react"
+import createAKEBContract from "./ABI/AKEB"
 import Web3 from "web3"
 
 
 function App() {
   const [web3, setWeb3] = useState()
   const [address, setAddress] = useState()
+  const [contract, setContract] = useState()
 
   console.log("Web3", web3)
   console.log("address", address)
+  console.log("contract", contract)
 
 
   const onConnect = async () => {
@@ -19,6 +22,10 @@ function App() {
         setWeb3(web3)
         const addresses = await web3.eth.getAccounts()
         setAddress(addresses[0])
+
+        const AKEBContract = createAKEBContract(web3)
+        setContract(AKEBContract)
+
       } catch(error) {
         console.log(error)
       }
