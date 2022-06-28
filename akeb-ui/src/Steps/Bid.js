@@ -1,8 +1,11 @@
 import { Button, Form, InputNumber } from 'antd'
 import React from 'react'
+import BidTimer from './Bid-Timer'
 
 const Bid = () => {
     return (
+        <div>
+            <BidTimer />
         <Form
             layout='vertical'>
             <Form.Item
@@ -24,6 +27,7 @@ const Bid = () => {
             </Button>
             
         </Form>
+        </div>
     )
 }
 
