@@ -1,9 +1,29 @@
-import React from 'react'
+import { Alert } from "antd";
+import React, { useContext, useEffect, useState } from "react";
+import StepStateContext from "../Context/StepStateContext";
 
 const BidTimer = () => {
-    return (
-        <div>Timer</div>
-    )
-}
+  const [timeLeft, setTimeLeft] = useState(10);
+  const { stepsState, setStepsState } = useContext(StepStateContext);
 
-export default BidTimer
+  useEffect(() => {
+    if (timeLeft === 0) {
+      setStepsState(stepsState + 1);
+    }
+    const timer = setTimeout(() => {
+      setTimeLeft(timeLeft - 1);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  });
+
+  return (
+    <Alert
+      type="warning"
+      description={`Seconds remaining: ${timeLeft}`}
+      showIcon
+    />
+  );
+};
+
+export default BidTimer;

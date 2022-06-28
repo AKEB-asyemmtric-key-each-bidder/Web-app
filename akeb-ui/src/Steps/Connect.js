@@ -1,20 +1,19 @@
-import { Button } from 'antd'
-import React, { useContext } from 'react'
-import StepStateContext from '../Context/StepStateContext'
+import { Button } from "antd";
+import React, { useContext } from "react";
+import StepStateContext from "../Context/StepStateContext";
 
 const Connect = () => {
-    const {stepsState, setStepsState} = useContext(StepStateContext)
+  const { stepsState, setStepsState } = useContext(StepStateContext);
 
-    const onConnectHandler = () => {
-        setStepsState(stepsState + 1)
-    }
+  const onConnectHandler = () => {
+    setStepsState(stepsState + 1);
+  };
 
-    return (
-        <Button type='primary' onClick={onConnectHandler}
-        size="large">
-            Connect your wallet
-        </Button>
-    )
-}
+  return (
+    <Button type="primary" onClick={onConnectHandler} size="large">
+      Connect your wallet
+    </Button>
+  );
+};
 
-export default Connect
+export default Connect;
