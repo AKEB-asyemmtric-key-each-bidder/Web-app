@@ -6,9 +6,7 @@ import "./Styles/Styles.css"
 
 const { Step } = Steps;
 
-
-
-const AuctionSteps = () => {
+const StepsBar = () => {
     return (
         <Steps className='Auction-Steps'>
             <Step status="finish" title="Connect" icon={<WalletFilled />} />
@@ -20,4 +18,4 @@ const AuctionSteps = () => {
     )
 }
 
-export default AuctionSteps
+export default StepsBar
