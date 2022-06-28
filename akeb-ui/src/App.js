@@ -1,6 +1,9 @@
 import React, { useEffect,useState } from 'react';
+import { Button } from 'antd';
 import createAKEBContract from "./ABI/AKEB"
 import Web3 from "web3"
+
+import 'antd/dist/antd.css'
 
 
 function App() {
@@ -64,7 +67,9 @@ function App() {
     <div>
       Auction
       <br />
-      <button onClick={onConnect}>Connect</button>
+      <Button 
+      type="primary"
+      onClick={onConnect}>Connect</Button>
       <button onClick={onGetPublicKey}>Get public keys</button>
       <div>
         Public keys : {publicKey}
