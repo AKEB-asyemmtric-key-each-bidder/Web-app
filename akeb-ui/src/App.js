@@ -8,6 +8,7 @@ import StepsBar from './Auction-Steps';
 import Connect from './Steps/Connect';
 import Enter from './Steps/Enter';
 import StepStateContext from './Context/StepStateContext';
+import Bid from './Steps/Bid';
 
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
   
   const steps = [
     <Connect/>, 
-    <Enter />
+    <Enter />,
+    <Bid />
   ]
 
   console.log("step state", stepsState)
