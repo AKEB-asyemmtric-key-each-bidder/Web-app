@@ -1,8 +1,11 @@
+import { Button } from 'antd'
 import React from 'react'
 
 const Enter = () => {
     return (
-        <div>in enter</div>
+        <Button type="primary" size='large'>
+            Enter the auction!
+        </Button>
     )
 }
 
