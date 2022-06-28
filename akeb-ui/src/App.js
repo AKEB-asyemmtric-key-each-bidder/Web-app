@@ -28,11 +28,10 @@ function App() {
           <Col span={20}>
             <StepsBar />
           </Col>
-          <Col span={20} style={{'border':'1px solid red'}}>
-            {steps[stepsState]}
-          </Col>
         </Row>
-        
+        <Row justify='center' align='middle'style={{'minHeight':'300px'}}>
+            {steps[stepsState]}
+        </Row>
     </StepStateContext.Provider>
   );
 }
