@@ -9,13 +9,14 @@ import Connect from "./Steps/Connect";
 import Enter from "./Steps/Enter";
 import StepStateContext from "./Context/StepStateContext";
 import Bid from "./Steps/Bid";
+import Confirm from "./Steps/Confirm";
 
 function App() {
   // 0: Connect, 1: Enter
   // 2: Bid, 3: Confirm ,4: End
   const [stepsState, setStepsState] = useState(0);
 
-  const steps = [<Connect />, <Enter />, <Bid />];
+  const steps = [<Connect />, <Enter />, <Bid />, <Confirm />];
 
   console.log("step state", stepsState);
 
