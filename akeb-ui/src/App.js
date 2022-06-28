@@ -22,15 +22,17 @@ function App() {
 
   console.log("step state", stepsState)
 
-
   return (
     <StepStateContext.Provider value={{stepsState, setStepsState}}>
         <Row justify='center' gutter={[16,24]}>
           <Col span={20}>
             <StepsBar />
           </Col>
+          <Col span={20} style={{'border':'1px solid red'}}>
+            {steps[stepsState]}
+          </Col>
         </Row>
-        {steps[stepsState]}
+        
     </StepStateContext.Provider>
   );
 }

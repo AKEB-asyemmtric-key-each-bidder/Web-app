@@ -10,7 +10,8 @@ const Connect = () => {
     }
 
     return (
-        <Button type='primary' onClick={onConnectHandler}>
+        <Button type='primary' onClick={onConnectHandler}
+        size="large">
             Connect your wallet
         </Button>
     )
