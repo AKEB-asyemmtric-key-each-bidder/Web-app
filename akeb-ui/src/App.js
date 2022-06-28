@@ -1,9 +1,10 @@
 import React, { useEffect,useState } from 'react';
-import { Button } from 'antd';
+import { Button, Col, Row } from 'antd';
 import createAKEBContract from "./ABI/AKEB"
 import Web3 from "web3"
 
 import 'antd/dist/antd.css'
+import AuctionSteps from './Auction-Steps';
 
 
 function App() {
@@ -65,7 +66,7 @@ function App() {
 
   return (
     <div>
-      Auction
+      {/* Auction
       <br />
       <Button 
       type="primary"
@@ -73,7 +74,12 @@ function App() {
       <button onClick={onGetPublicKey}>Get public keys</button>
       <div>
         Public keys : {publicKey}
-      </div>
+      </div> */}
+      <Row justify='center'>
+        <Col span={18}>
+          <AuctionSteps />
+        </Col>
+      </Row>
     </div>
     
   );
