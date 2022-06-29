@@ -1,15 +1,11 @@
-import { Button, Col, Form, InputNumber, Row } from "antd";
+import { Button, Col, Form, InputNumber, Row, Space } from "antd";
 import React from "react";
 import BidTimer from "./Bid-Timer";
 
 const Bid = () => {
   return (
-    <div style={{ border: "1px solid black", minWidth: "80%" }}>
-      <Row>
-        <Col span={24}>
-          <BidTimer />
-        </Col>
-      </Row>
+    <Space direction="vertical" size="large">
+      <BidTimer />
 
       <Form layout="vertical">
         <Form.Item
@@ -32,7 +28,7 @@ const Bid = () => {
           Submit
         </Button>
       </Form>
-    </div>
+    </Space>
   );
 };
 
