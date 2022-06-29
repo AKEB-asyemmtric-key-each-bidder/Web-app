@@ -28,11 +28,7 @@ function App() {
           <StepsBar />
         </Col>
       </Row>
-      <Row
-        justify="center"
-        align="middle"
-        style={{ minHeight: "300px", border: "1px solid black" }}
-      >
+      <Row justify="center" align="middle" style={{ minHeight: "300px" }}>
         {steps[stepsState]}
       </Row>
     </StepStateContext.Provider>
