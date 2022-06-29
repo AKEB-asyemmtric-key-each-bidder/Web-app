@@ -1,5 +1,7 @@
 import { Button } from "antd";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import Web3 from "web3";
+import createAKEBContract from "../ABI/AKEB";
 import BlockchainContext from "../Context/BlockchainContext";
 import StepStateContext from "../Context/StepStateContext";
 
@@ -14,11 +16,44 @@ const Connect = () => {
     setContract,
   } = useContext(BlockchainContext);
 
-  console.log("Web3", web3);
-
-  const onConnectHandler = () => {
-    setStepsState(stepsState + 1);
+  const onConnectHandler = async () => {
+    if (
+      typeof window !== "undefined" &&
+      typeof window.ethereum != "undefined"
+    ) {
+      try {
+        await window.ethereum.request({ method: "eth_requestAccounts" });
+        const web3Obj = new Web3(window.ethereum);
+        setWeb3(web3Obj);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      console.error("Meta mask is not installed");
+    }
   };
+
+  useEffect(() => {
+    web3 && getAccounts();
+  }, [web3]);
+
+  const getAccounts = async () => {
+    const addresses = await web3.eth.getAccounts();
+    setAddress(addresses[0]);
+  };
+
+  useEffect(() => {
+    address && getContract();
+  }, [address]);
+
+  const getContract = () => {
+    const AKEBContract = createAKEBContract(web3);
+    setContract(AKEBContract);
+  };
+
+  useEffect(() => {
+    contract && setStepsState(stepsState + 1);
+  }, [contract]);
 
   return (
     <Button type="primary" onClick={onConnectHandler} size="large">
