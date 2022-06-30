@@ -13,15 +13,18 @@ import Confirm from "./Steps/Confirm";
 import End from "./Steps/End";
 import Passphrase from "./Steps/Passphrase";
 import BlockchainContext from "./Context/BlockchainContext";
+import PassphraseContext from "./Context/PassphraseContext";
 
 function App() {
   // 0: Connect, 1: Enter
-  // 2: Bid, 3: Confirm ,4: End
+  // 2: Bid,3: Passphrase, 4: Confirm ,5: End
   const [stepsState, setStepsState] = useState(0);
 
   const [web3, setWeb3] = useState();
   const [address, setAddress] = useState();
   const [contract, setContract] = useState();
+
+  const [passphrase, setPassphrase] = useState();
 
   const steps = [
     <Connect />,
@@ -33,20 +36,22 @@ function App() {
   ];
 
   return (
-    <BlockchainContext.Provider
-      value={{ web3, setWeb3, address, setAddress, contract, setContract }}
-    >
-      <StepStateContext.Provider value={{ stepsState, setStepsState }}>
-        <Row justify="center" gutter={[16, 24]}>
-          <Col span={20}>
-            <StepsBar />
-          </Col>
-        </Row>
-        <Row justify="center" align="middle" style={{ minHeight: "300px" }}>
-          {steps[stepsState]}
-        </Row>
-      </StepStateContext.Provider>
-    </BlockchainContext.Provider>
+    <PassphraseContext.Provider value={{ passphrase, setPassphrase }}>
+      <BlockchainContext.Provider
+        value={{ web3, setWeb3, address, setAddress, contract, setContract }}
+      >
+        <StepStateContext.Provider value={{ stepsState, setStepsState }}>
+          <Row justify="center" gutter={[16, 24]}>
+            <Col span={20}>
+              <StepsBar />
+            </Col>
+          </Row>
+          <Row justify="center" align="middle" style={{ minHeight: "300px" }}>
+            {steps[stepsState]}
+          </Row>
+        </StepStateContext.Provider>
+      </BlockchainContext.Provider>
+    </PassphraseContext.Provider>
   );
 }
 

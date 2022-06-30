@@ -1,9 +1,16 @@
 import { Button, Form, Input } from "antd";
-import React from "react";
+import React, { useContext } from "react";
+import PassphraseContext from "../Context/PassphraseContext";
+import StepStateContext from "../Context/StepStateContext";
 
 const Passsphrase = () => {
-  const onFinish = () => {
-    console.log("on finish clicked");
+  const { setPassphrase } = useContext(PassphraseContext);
+  const { stepsState, setStepsState } = useContext(StepStateContext);
+
+  const onFinish = (values) => {
+    const input = values["passphrase"];
+    setPassphrase(input);
+    setStepsState(stepsState + 1);
   };
 
   return (
