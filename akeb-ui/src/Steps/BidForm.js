@@ -19,7 +19,13 @@ const BidForm = () => {
     // setLoading(true);
     // const input = values["bid"];
     // setBid(input);
-    getSubmittedEncodedBid();
+
+    // For checking if smart contract has value in it
+    // To be removed when AWS is completed
+    // getSubmittedEncodedBid();
+
+    // To be removed when AWS is completed
+    setStepsState(stepsState + 1);
   };
 
   const getSubmittedEncodedBid = async () => {
