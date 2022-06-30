@@ -1,4 +1,4 @@
-import { Card, Typography } from "antd";
+import { Alert, Card, Space, Typography } from "antd";
 import React, { useContext } from "react";
 import PassphraseContext from "../Context/PassphraseContext";
 const { Paragraph } = Typography;
@@ -8,7 +8,13 @@ const PassphraseCard = () => {
 
   return (
     <Card title="Passphrase">
-      <Paragraph copyable>{passphrase}</Paragraph>
+      <Space direction="vertical">
+        <Alert
+          message="Never share your passphrase with anyone!"
+          type="warning"
+        />
+        <Paragraph copyable>{passphrase}</Paragraph>
+      </Space>
     </Card>
   );
 };
