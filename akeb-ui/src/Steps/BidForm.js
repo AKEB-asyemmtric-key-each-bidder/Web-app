@@ -15,6 +15,7 @@ const BidForm = () => {
   const [loading, setLoading] = useState(false);
 
   const onBidFormFinished = (values) => {
+    // Uncommented when AWS is implemented
     // setLoading(true);
     // const input = values["bid"];
     // setBid(input);
