@@ -13,7 +13,7 @@ import Confirm from "./Steps/Confirm";
 import End from "./Steps/End";
 import Passphrase from "./Steps/Passphrase";
 import BlockchainContext from "./Context/BlockchainContext";
-import PassphraseContext from "./Context/PassphraseContext";
+import BidsContext from "./Context/BidsContext";
 
 function App() {
   // 0: Connect, 1: Enter
@@ -36,7 +36,7 @@ function App() {
   ];
 
   return (
-    <PassphraseContext.Provider value={{ passphrase, setPassphrase }}>
+    <BidsContext.Provider value={{ passphrase, setPassphrase }}>
       <BlockchainContext.Provider
         value={{ web3, setWeb3, address, setAddress, contract, setContract }}
       >
@@ -51,7 +51,7 @@ function App() {
           </Row>
         </StepStateContext.Provider>
       </BlockchainContext.Provider>
-    </PassphraseContext.Provider>
+    </BidsContext.Provider>
   );
 }
 

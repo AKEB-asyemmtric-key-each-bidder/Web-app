@@ -1,10 +1,10 @@
 import { Alert, Card, Space, Typography } from "antd";
 import React, { useContext } from "react";
-import PassphraseContext from "../Context/PassphraseContext";
+import BidsContext from "../Context/BidsContext";
 const { Paragraph } = Typography;
 
 const PassphraseCard = () => {
-  const { passphrase } = useContext(PassphraseContext);
+  const { passphrase } = useContext(BidsContext);
 
   return (
     <Card title="Passphrase">

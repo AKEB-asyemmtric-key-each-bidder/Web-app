@@ -1,10 +1,10 @@
 import { Button, Form, Input } from "antd";
 import React, { useContext } from "react";
-import PassphraseContext from "../Context/PassphraseContext";
+import BidsContext from "../Context/BidsContext";
 import StepStateContext from "../Context/StepStateContext";
 
 const Passsphrase = () => {
-  const { setPassphrase } = useContext(PassphraseContext);
+  const { setPassphrase } = useContext(BidsContext);
   const { stepsState, setStepsState } = useContext(StepStateContext);
 
   const onFinish = (values) => {
