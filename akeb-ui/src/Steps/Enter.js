@@ -5,13 +5,12 @@ import BlockchainContext from "../Context/BlockchainContext";
 
 const Enter = () => {
   const { stepsState, setStepsState } = useContext(StepStateContext);
-  const { address, setAddress, contract } = useContext(BlockchainContext);
+  const { address, contract } = useContext(BlockchainContext);
   const [loading, setLoading] = useState(false);
 
   const onEnterHandler = () => {
     registerBidder();
     setLoading(true);
-    // setStepsState(stepsState + 1);
   };
 
   const registerBidder = async () => {
@@ -21,12 +20,13 @@ const Enter = () => {
         setLoading(false);
 
         if (error) {
-          console.log("error", error);
+          console.log("error in registering bidder smart contract", error);
           return;
         }
+
+        setStepsState(stepsState + 1);
         console.log("res", res);
       });
-    // console.log("str", str);
   };
 
   return (
