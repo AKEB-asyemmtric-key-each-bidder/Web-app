@@ -6,16 +6,16 @@ const BidTimer = () => {
   const [timeLeft, setTimeLeft] = useState(10);
   const { stepsState, setStepsState } = useContext(StepStateContext);
 
-  useEffect(() => {
-    if (timeLeft === 0) {
-      setStepsState(stepsState + 1);
-    }
-    const timer = setTimeout(() => {
-      setTimeLeft(timeLeft - 1);
-    }, 1000);
+  // useEffect(() => {
+  //   if (timeLeft === 0) {
+  //     setStepsState(stepsState + 1);
+  //   }
+  //   const timer = setTimeout(() => {
+  //     setTimeLeft(timeLeft - 1);
+  //   }, 1000);
 
-    return () => clearTimeout(timer);
-  });
+  //   return () => clearTimeout(timer);
+  // });
 
   return (
     <Alert

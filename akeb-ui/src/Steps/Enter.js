@@ -9,8 +9,9 @@ const Enter = () => {
   const [loading, setLoading] = useState(false);
 
   const onEnterHandler = () => {
-    registerBidder();
-    setLoading(true);
+    // registerBidder();
+    // setLoading(true);
+    setStepsState(stepsState + 1);
   };
 
   const registerBidder = async () => {
@@ -25,7 +26,7 @@ const Enter = () => {
         }
 
         setStepsState(stepsState + 1);
-        console.log("res", res);
+        // console.log("res", res);
       });
   };
 
