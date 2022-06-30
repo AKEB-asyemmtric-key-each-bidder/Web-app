@@ -11,6 +11,7 @@ import StepStateContext from "./Context/StepStateContext";
 import Bid from "./Steps/Bid";
 import Confirm from "./Steps/Confirm";
 import End from "./Steps/End";
+import Passphrase from "./Steps/Passphrase";
 import BlockchainContext from "./Context/BlockchainContext";
 
 function App() {
@@ -22,7 +23,14 @@ function App() {
   const [address, setAddress] = useState();
   const [contract, setContract] = useState();
 
-  const steps = [<Connect />, <Enter />, <Bid />, <Confirm />, <End />];
+  const steps = [
+    <Connect />,
+    <Enter />,
+    <Passphrase />,
+    <Bid />,
+    <Confirm />,
+    <End />,
+  ];
 
   return (
     <BlockchainContext.Provider
