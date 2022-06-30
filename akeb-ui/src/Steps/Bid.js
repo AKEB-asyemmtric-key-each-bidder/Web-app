@@ -2,11 +2,10 @@ import { Button, Col, Form, InputNumber, Row, Space } from "antd";
 import React, { useContext } from "react";
 import PassphraseContext from "../Context/PassphraseContext";
 import BidTimer from "./Bid-Timer";
+import PassphraseCard from "./PassphraseCard";
 
 const Bid = () => {
   const { passphrase } = useContext(PassphraseContext);
-
-  console.log("passphrase in bid", passphrase);
 
   return (
     <Space direction="vertical" size="large">
@@ -33,6 +32,8 @@ const Bid = () => {
           Submit
         </Button>
       </Form>
+
+      <PassphraseCard />
     </Space>
   );
 };
