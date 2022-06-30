@@ -26,6 +26,7 @@ function App() {
 
   const [nonce, setNonce] = useState();
   const [bid, setBid] = useState();
+  const [encodedBid, setEncodedBid] = useState();
 
   const steps = [
     <Connect />,
@@ -37,7 +38,9 @@ function App() {
   ];
 
   return (
-    <BidsContext.Provider value={{ nonce, setNonce, bid, setBid }}>
+    <BidsContext.Provider
+      value={{ nonce, setNonce, bid, setBid, encodedBid, setEncodedBid }}
+    >
       <BlockchainContext.Provider
         value={{ web3, setWeb3, address, setAddress, contract, setContract }}
       >
