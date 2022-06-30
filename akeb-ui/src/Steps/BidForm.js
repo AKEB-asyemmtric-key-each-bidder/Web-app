@@ -1,15 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import CryptoJS from "crypto-js";
 import { Button, Form, InputNumber } from "antd";
 import BidsContext from "../Context/BidsContext";
 
 const BidForm = () => {
   const { bid, setBid, passphrase } = useContext(BidsContext);
 
-  console.log("bid in bidForm", bid);
-
   const onBidFormFinished = (values) => {
     const input = values["bid"];
     setBid(input);
+  };
+
+  useEffect(() => {
+    bid && encryptBid();
+  }, [bid]);
+
+  const encryptBid = () => {
+    const sha = CryptoJS.SHA256(bid + passphrase).toString();
+    console.log("shaw", sha);
   };
 
   return (
