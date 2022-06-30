@@ -3,28 +3,27 @@ import React, { useContext } from "react";
 import BidsContext from "../Context/BidsContext";
 import StepStateContext from "../Context/StepStateContext";
 
-const Passsphrase = () => {
-  const { setPassphrase } = useContext(BidsContext);
+const Nonce = () => {
+  const { setNonce } = useContext(BidsContext);
   const { stepsState, setStepsState } = useContext(StepStateContext);
 
   const onFinish = (values) => {
-    const input = values["passphrase"];
-    setPassphrase(input);
+    const input = values["nonce"];
+    setNonce(input);
     setStepsState(stepsState + 1);
   };
 
   return (
     <Form layout="vertical" name="passphraseForm" onFinish={onFinish}>
       <Form.Item
-        label="Enter your passphrase"
-        name="passphrase"
+        label="Enter your nonce"
+        name="nonce"
         rules={[
           {
             required: true,
             message: "Passphrase is required",
           },
         ]}
-        help="Never share this key with anyone!"
       >
         <Input.Password />
       </Form.Item>
@@ -37,4 +36,4 @@ const Passsphrase = () => {
   );
 };
 
-export default Passsphrase;
+export default Nonce;

@@ -11,7 +11,7 @@ import StepStateContext from "./Context/StepStateContext";
 import Bid from "./Steps/Bid";
 import Confirm from "./Steps/Confirm";
 import End from "./Steps/End";
-import Passphrase from "./Steps/Passphrase";
+import Passphrase from "./Steps/Nonce";
 import BlockchainContext from "./Context/BlockchainContext";
 import BidsContext from "./Context/BidsContext";
 
@@ -24,7 +24,7 @@ function App() {
   const [address, setAddress] = useState();
   const [contract, setContract] = useState();
 
-  const [passphrase, setPassphrase] = useState();
+  const [nonce, setNonce] = useState();
   const [bid, setBid] = useState();
 
   const steps = [
@@ -37,7 +37,7 @@ function App() {
   ];
 
   return (
-    <BidsContext.Provider value={{ passphrase, setPassphrase, bid, setBid }}>
+    <BidsContext.Provider value={{ nonce, setNonce, bid, setBid }}>
       <BlockchainContext.Provider
         value={{ web3, setWeb3, address, setAddress, contract, setContract }}
       >

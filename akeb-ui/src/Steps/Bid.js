@@ -1,7 +1,7 @@
 import React from "react";
 import { Space } from "antd";
 import BidTimer from "./Bid-Timer";
-import PassphraseCard from "./PassphraseCard";
+import PassphraseCard from "./NonceCard";
 import BidForm from "./BidForm";
 
 const Bid = () => {

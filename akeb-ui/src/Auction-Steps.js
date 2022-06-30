@@ -6,7 +6,7 @@ import {
   RightCircleFilled,
   WalletFilled,
   TrophyFilled,
-  LockFilled,
+  RocketFilled,
 } from "@ant-design/icons";
 import { Steps } from "antd";
 import "./Styles/Styles.css";
@@ -21,7 +21,7 @@ const StepsBar = () => {
     <Steps current={stepsState} className="Auction-Steps">
       <Step title="Connect" icon={<WalletFilled />} />
       <Step title="Enter" icon={<RightCircleFilled />} />
-      <Step title="Passsphrase" icon={<LockFilled />} />
+      <Step title="Nonce" icon={<RocketFilled />} />
       <Step title="Bid" icon={<MoneyCollectFilled />} />
       <Step title="Confirm" icon={<ExperimentFilled />} />
       <Step title="End" icon={<TrophyFilled />} />

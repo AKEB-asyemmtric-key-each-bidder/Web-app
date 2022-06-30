@@ -4,16 +4,12 @@ import BidsContext from "../Context/BidsContext";
 const { Paragraph } = Typography;
 
 const PassphraseCard = () => {
-  const { passphrase } = useContext(BidsContext);
+  const { nonce } = useContext(BidsContext);
 
   return (
-    <Card title="Passphrase">
+    <Card title="Nonce">
       <Space direction="vertical">
-        <Alert
-          message="Never share your passphrase with anyone!"
-          type="warning"
-        />
-        <Paragraph copyable>{passphrase}</Paragraph>
+        <Paragraph copyable>{nonce}</Paragraph>
       </Space>
     </Card>
   );

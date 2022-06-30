@@ -4,7 +4,7 @@ import { Button, Form, InputNumber } from "antd";
 import BidsContext from "../Context/BidsContext";
 
 const BidForm = () => {
-  const { bid, setBid, passphrase } = useContext(BidsContext);
+  const { bid, setBid, nonce } = useContext(BidsContext);
 
   const onBidFormFinished = (values) => {
     const input = values["bid"];
@@ -16,8 +16,8 @@ const BidForm = () => {
   }, [bid]);
 
   const encryptBid = () => {
-    const sha = CryptoJS.SHA256(bid + passphrase).toString();
-    console.log("shaw", sha);
+    const sha = CryptoJS.SHA256(bid + nonce).toString();
+    console.log("sha", sha);
   };
 
   return (
