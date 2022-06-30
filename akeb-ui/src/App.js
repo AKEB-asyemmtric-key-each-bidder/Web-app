@@ -25,6 +25,7 @@ function App() {
   const [contract, setContract] = useState();
 
   const [passphrase, setPassphrase] = useState();
+  const [bid, setBid] = useState();
 
   const steps = [
     <Connect />,
@@ -36,7 +37,7 @@ function App() {
   ];
 
   return (
-    <BidsContext.Provider value={{ passphrase, setPassphrase }}>
+    <BidsContext.Provider value={{ passphrase, setPassphrase, bid, setBid }}>
       <BlockchainContext.Provider
         value={{ web3, setWeb3, address, setAddress, contract, setContract }}
       >

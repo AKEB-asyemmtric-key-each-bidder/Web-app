@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Form, InputNumber } from "antd";
+import BidsContext from "../Context/BidsContext";
 
 const BidForm = () => {
+  const { bid, setBid, passphrase } = useContext(BidsContext);
+
+  console.log("bid in bidForm", bid);
+
   const onBidFormFinished = (values) => {
-    console.log("bid value", values["bid"]);
+    const input = values["bid"];
+    setBid(input);
   };
 
   return (
