@@ -4,7 +4,7 @@ import createAKEBContract from "./ABI/AKEB";
 import Web3 from "web3";
 
 import "antd/dist/antd.css";
-import StepsBar from "./Auction-Steps";
+import StepsBar from "./StepsBar";
 import Connect from "./Steps/Connect";
 import Enter from "./Steps/Enter";
 import StepStateContext from "./Context/StepStateContext";
@@ -14,6 +14,7 @@ import End from "./Steps/End";
 import Passphrase from "./Steps/Nonce";
 import BlockchainContext from "./Context/BlockchainContext";
 import BidsContext from "./Context/BidsContext";
+import AuctionSkeleton from "./Skeleton/AuctionSkeleton";
 
 function App() {
   // 0: Connect, 1: Enter
@@ -39,24 +40,26 @@ function App() {
   ];
 
   return (
-    <BidsContext.Provider
-      value={{ nonce, setNonce, bid, setBid, encodedBid, setEncodedBid }}
-    >
-      <BlockchainContext.Provider
-        value={{ web3, setWeb3, address, setAddress, contract, setContract }}
+    <AuctionSkeleton>
+      <BidsContext.Provider
+        value={{ nonce, setNonce, bid, setBid, encodedBid, setEncodedBid }}
       >
-        <StepStateContext.Provider value={{ stepsState, setStepsState }}>
-          <Row justify="center" gutter={[16, 24]}>
-            <Col span={20}>
-              <StepsBar />
-            </Col>
-          </Row>
-          <Row justify="center" align="middle" style={{ minHeight: "300px" }}>
-            {steps[stepsState]}
-          </Row>
-        </StepStateContext.Provider>
-      </BlockchainContext.Provider>
-    </BidsContext.Provider>
+        <BlockchainContext.Provider
+          value={{ web3, setWeb3, address, setAddress, contract, setContract }}
+        >
+          <StepStateContext.Provider value={{ stepsState, setStepsState }}>
+            <Row justify="center" gutter={[16, 24]}>
+              <Col span={20}>
+                <StepsBar />
+              </Col>
+            </Row>
+            <Row justify="center" align="middle" style={{ minHeight: "300px" }}>
+              {steps[stepsState]}
+            </Row>
+          </StepStateContext.Provider>
+        </BlockchainContext.Provider>
+      </BidsContext.Provider>
+    </AuctionSkeleton>
   );
 }
 
