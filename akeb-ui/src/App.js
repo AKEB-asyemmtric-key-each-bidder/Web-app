@@ -5,7 +5,7 @@ import Web3 from "web3";
 
 import "antd/dist/antd.css";
 import StepsBar from "./StepsBar";
-import Connect from "./Steps/Connect";
+import Connect from "./Steps/Connect/Connect";
 import Enter from "./Steps/Enter";
 import StepStateContext from "./Context/StepStateContext";
 import Bid from "./Steps/Bid";
@@ -48,12 +48,18 @@ function App() {
           value={{ web3, setWeb3, address, setAddress, contract, setContract }}
         >
           <StepStateContext.Provider value={{ stepsState, setStepsState }}>
-            <Row justify="center" gutter={[16, 24]}>
-              <Col span={20}>
-                <StepsBar />
-              </Col>
+            <Row
+              justify="center"
+              align="middle"
+              style={{ border: "1px solid blue", height: "10vh" }}
+            >
+              <StepsBar />
             </Row>
-            <Row justify="center" align="middle" style={{ minHeight: "300px" }}>
+            <Row
+              justify="center"
+              align="middle"
+              style={{ height: "65vh", border: "1px solid blue" }}
+            >
               {steps[stepsState]}
             </Row>
           </StepStateContext.Provider>

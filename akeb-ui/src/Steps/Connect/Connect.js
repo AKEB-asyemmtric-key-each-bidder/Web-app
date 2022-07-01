@@ -1,9 +1,10 @@
-import { Button } from "antd";
+import { Button, Result } from "antd";
+import { WalletFilled } from "@ant-design/icons";
 import React, { useContext, useEffect } from "react";
 import Web3 from "web3";
-import createAKEBContract from "../ABI/AKEB";
-import BlockchainContext from "../Context/BlockchainContext";
-import StepStateContext from "../Context/StepStateContext";
+import createAKEBContract from "../../ABI/AKEB";
+import BlockchainContext from "../../Context/BlockchainContext";
+import StepStateContext from "../../Context/StepStateContext";
 
 const Connect = () => {
   const { stepsState, setStepsState } = useContext(StepStateContext);
@@ -56,9 +57,15 @@ const Connect = () => {
   }, [contract]);
 
   return (
-    <Button type="primary" onClick={onConnectHandler} size="large">
-      Connect your wallet
-    </Button>
+    <Result
+      icon={<WalletFilled />}
+      title="Please connect your Metamask wallet"
+      extra={
+        <Button type="primary" onClick={onConnectHandler} size="large">
+          Connect your wallet
+        </Button>
+      }
+    />
   );
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Image, Layout, Menu, Space, Typography } from "antd";
 import Logo from "../Statics/Images/Logo.png";
 
-import "../Styles/Styles.css";
+import "../Statics/Styles/Styles.css";
 
 const { Text } = Typography;
 const { Header, Content, Footer } = Layout;

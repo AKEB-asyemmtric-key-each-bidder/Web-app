@@ -9,7 +9,7 @@ import {
   RocketFilled,
 } from "@ant-design/icons";
 import { Steps } from "antd";
-import "./Styles/Styles.css";
+import "./Statics/Styles/Styles.css";
 import StepStateContext from "./Context/StepStateContext";
 
 const { Step } = Steps;
