@@ -17,7 +17,8 @@ import BidsContext from "./Context/BidsContext";
 
 function App() {
   // 0: Connect, 1: Enter
-  // 2: Bid,3: Passphrase, 4: Confirm ,5: End
+  // 2: Bid, 3: Passphrase,
+  // 4: Confirm ,5: End
   const [stepsState, setStepsState] = useState(0);
 
   const [web3, setWeb3] = useState();
