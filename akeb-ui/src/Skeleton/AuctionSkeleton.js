@@ -36,7 +36,7 @@ const AuctionSkeleton = ({ children }) => {
             </Menu.Item>
           </div>
         </Menu>
-        <Content>{children}</Content>
+        <Content style={{ width: "100%" }}>{children}</Content>
         <Footer className="footer">
           <Text>All rights reserved by University of Victoria</Text>
         </Footer>

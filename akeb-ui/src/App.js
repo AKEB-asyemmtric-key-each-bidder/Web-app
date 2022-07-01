@@ -15,6 +15,7 @@ import Passphrase from "./Steps/Nonce";
 import BlockchainContext from "./Context/BlockchainContext";
 import BidsContext from "./Context/BidsContext";
 import AuctionSkeleton from "./Skeleton/AuctionSkeleton";
+import GeneralInfo from "./GeneralInfo/GeneralInfo";
 
 function App() {
   // 0: Connect, 1: Enter
@@ -40,32 +41,43 @@ function App() {
   ];
 
   return (
-    <AuctionSkeleton>
-      <BidsContext.Provider
-        value={{ nonce, setNonce, bid, setBid, encodedBid, setEncodedBid }}
-      >
-        <BlockchainContext.Provider
-          value={{ web3, setWeb3, address, setAddress, contract, setContract }}
+    <div style={{ background: "#F0F2F5", height: "100vh" }}>
+      <AuctionSkeleton>
+        <BidsContext.Provider
+          value={{ nonce, setNonce, bid, setBid, encodedBid, setEncodedBid }}
         >
-          <StepStateContext.Provider value={{ stepsState, setStepsState }}>
-            <Row
-              justify="center"
-              align="middle"
-              style={{ border: "1px solid blue", height: "10vh" }}
-            >
-              <StepsBar />
-            </Row>
-            <Row
-              justify="center"
-              align="middle"
-              style={{ height: "65vh", border: "1px solid blue" }}
-            >
-              {steps[stepsState]}
-            </Row>
-          </StepStateContext.Provider>
-        </BlockchainContext.Provider>
-      </BidsContext.Provider>
-    </AuctionSkeleton>
+          <BlockchainContext.Provider
+            value={{
+              web3,
+              setWeb3,
+              address,
+              setAddress,
+              contract,
+              setContract,
+            }}
+          >
+            <StepStateContext.Provider value={{ stepsState, setStepsState }}>
+              <Row justify="center" align="middle" style={{ height: "10vh" }}>
+                <StepsBar />
+              </Row>
+
+              <GeneralInfo />
+              <Row
+                justify="center"
+                align="middle"
+                style={{
+                  height: "50vh",
+                  background: "white",
+                  marginTop: "20px",
+                }}
+              >
+                {steps[stepsState]}
+              </Row>
+            </StepStateContext.Provider>
+          </BlockchainContext.Provider>
+        </BidsContext.Provider>
+      </AuctionSkeleton>
+    </div>
   );
 }
 

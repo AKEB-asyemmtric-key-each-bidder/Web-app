@@ -1,5 +1,6 @@
-import { Button } from "antd";
 import React, { useContext, useState } from "react";
+import { Button, Result } from "antd";
+import { RightCircleFilled } from "@ant-design/icons";
 import StepStateContext from "../Context/StepStateContext";
 import BlockchainContext from "../Context/BlockchainContext";
 
@@ -31,14 +32,20 @@ const Enter = () => {
   };
 
   return (
-    <Button
-      type="primary"
-      size="large"
-      onClick={onEnterHandler}
-      loading={loading}
-    >
-      Enter the auction!
-    </Button>
+    <Result
+      icon={<RightCircleFilled />}
+      title="Ready to enter the auction?"
+      extra={
+        <Button
+          type="primary"
+          size="large"
+          onClick={onEnterHandler}
+          loading={loading}
+        >
+          Enter the auction!
+        </Button>
+      }
+    />
   );
 };
 
