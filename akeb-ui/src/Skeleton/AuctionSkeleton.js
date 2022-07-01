@@ -32,7 +32,7 @@ const AuctionSkeleton = ({ children }) => {
               <Button type="link">Methodology</Button>
             </Menu.Item>
             <Menu.Item key="1" style={{ float: "right" }}>
-              <Button type="link">About me</Button>
+              <Button type="link">About</Button>
             </Menu.Item>
           </div>
         </Menu>
