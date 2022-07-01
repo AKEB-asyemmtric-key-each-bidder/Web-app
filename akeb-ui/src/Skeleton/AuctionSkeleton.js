@@ -18,7 +18,7 @@ const AuctionSkeleton = ({ children }) => {
             height: "100%",
           }}
         >
-          <Image src={Logo} width={50} height={50} />
+          <Image src={Logo} width={50} height={50} preview={false} />
         </div>
         <Menu mode="horizontal" />
         <Content>{children}</Content>
