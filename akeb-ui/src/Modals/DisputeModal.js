@@ -15,6 +15,8 @@ const DisputeModal = ({ disputeModalVisible, setDisputeModalVisible }) => {
       visible={disputeModalVisible}
       onCancel={onClose}
       onOk={onClose}
+      okText="Dispute"
+      okButtonProps={{ type: "danger" }}
     >
       <Paragraph>
         By requesting dispute, the following information will be revealed to
