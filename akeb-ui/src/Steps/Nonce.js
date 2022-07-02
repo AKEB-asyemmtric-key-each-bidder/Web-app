@@ -23,7 +23,7 @@ const Nonce = () => {
           rules={[
             {
               required: true,
-              message: "Passphrase is required",
+              message: "Nonce is required",
             },
           ]}
         >
