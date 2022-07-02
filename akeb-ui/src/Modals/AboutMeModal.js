@@ -1,5 +1,7 @@
-import { Modal } from "antd";
+import { Modal, Typography } from "antd";
 import React from "react";
+
+const { Paragraph } = Typography;
 
 const AboutMeModal = ({ isAboutMeModalVisible, setIsAboutMeModalVisible }) => {
   const onClose = () => {
@@ -8,12 +10,16 @@ const AboutMeModal = ({ isAboutMeModalVisible, setIsAboutMeModalVisible }) => {
 
   return (
     <Modal
-      title="About me"
+      title="About"
       visible={isAboutMeModalVisible}
       onCancel={onClose}
       onOk={onClose}
     >
-      About me
+      <Paragraph>
+        My name is Ehsan Ghasaei, 4th year student in Master of engineering in
+        Electrical and Computer engineering @ University of Victoria. This is my
+        Meng project.
+      </Paragraph>
     </Modal>
   );
 };
