@@ -8,7 +8,7 @@ const GeneralInfoCard = ({ title, value }) => {
         title={title}
         loading={value ? false : true}
         value={value ? value : "..."}
-        valueStyle={{ wordBreak: "break-all" }}
+        valueStyle={{ wordBreak: "break-all", fontSize: "16px" }}
       />
     </Card>
   );
