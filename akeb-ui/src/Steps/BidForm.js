@@ -73,7 +73,7 @@ const BidForm = () => {
   };
 
   return (
-    <Form layout="vertical" onFinish={onBidFormFinished}>
+    <Form layout="vertical" name="bidForm" onFinish={onBidFormFinished}>
       <Form.Item
         label="Enter your bid"
         name="bid"
@@ -85,16 +85,17 @@ const BidForm = () => {
         ]}
       >
         <InputNumber
+          style={{ width: "100%" }}
           addonAfter="Ether"
-          style={{ minWidth: "200px" }}
-          size="large"
           step="0.0000001"
           stringMode
         />
       </Form.Item>
-      <Button type="primary" htmlType="submit" loading={loading}>
-        Submit
-      </Button>
+      <Form.Item>
+        <Button type="primary" htmlType="submit" loading={loading}>
+          Submit
+        </Button>
+      </Form.Item>
     </Form>
   );
 };

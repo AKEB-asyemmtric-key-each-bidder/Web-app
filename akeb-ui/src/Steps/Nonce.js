@@ -14,7 +14,7 @@ const Nonce = () => {
     setStepsState(stepsState + 1);
   };
 
-  const MyForm = () => {
+  const NonceForm = () => {
     return (
       <Form layout="vertical" name="passphraseForm" onFinish={onFinish}>
         <Form.Item
@@ -43,7 +43,7 @@ const Nonce = () => {
       icon={<RocketFilled />}
       title="Please enter your nonce"
       subTitle="Nonce will be added to bid for randomizing value and making it harder to guess"
-      extra={<MyForm />}
+      extra={<NonceForm />}
     />
   );
 };
