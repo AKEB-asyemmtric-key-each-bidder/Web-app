@@ -57,21 +57,23 @@ function App() {
             }}
           >
             <StepStateContext.Provider value={{ stepsState, setStepsState }}>
-              <Row justify="center" align="middle" style={{ height: "10vh" }}>
-                <StepsBar />
-              </Row>
-
-              <GeneralInfo />
-              <Row
-                justify="center"
-                align="middle"
-                style={{
-                  height: "50vh",
-                  background: "white",
-                  marginTop: "20px",
-                }}
-              >
-                {steps[stepsState]}
+              <Row gutter={[16, 16]}>
+                <Col span={24}>
+                  <StepsBar />
+                </Col>
+                <Col span={16}>
+                  <Row
+                    justify="center"
+                    style={{
+                      background: "white",
+                    }}
+                  >
+                    {steps[stepsState]}
+                  </Row>
+                </Col>
+                <Col span={8}>
+                  <GeneralInfo />
+                </Col>
               </Row>
             </StepStateContext.Provider>
           </BlockchainContext.Provider>

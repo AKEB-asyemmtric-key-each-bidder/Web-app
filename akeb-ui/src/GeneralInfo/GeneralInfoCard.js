@@ -4,7 +4,11 @@ import React from "react";
 const GeneralInfoCard = ({ title, value }) => {
   return (
     <Card>
-      <Statistic title={title} value={value} />
+      <Statistic
+        title={title}
+        loading={value ? false : true}
+        value={value ? value : "..."}
+      />
     </Card>
   );
 };

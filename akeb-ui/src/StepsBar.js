@@ -18,7 +18,7 @@ const StepsBar = () => {
   const { stepsState } = useContext(StepStateContext);
 
   return (
-    <Steps current={stepsState} className="Auction-Steps">
+    <Steps current={stepsState} className="auction-steps">
       <Step title="Connect" icon={<WalletFilled />} />
       <Step title="Enter" icon={<RightCircleFilled />} />
       <Step title="Nonce" icon={<RocketFilled />} />
