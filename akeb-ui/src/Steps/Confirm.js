@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { LoadingOutlined } from "@ant-design/icons";
+import { ExperimentFilled } from "@ant-design/icons";
 import { Button, Result } from "antd";
 import StepStateContext from "../Context/StepStateContext";
 
@@ -8,7 +8,7 @@ const Confirm = () => {
 
   return (
     <Result
-      icon={<LoadingOutlined />}
+      icon={<ExperimentFilled spin />}
       title="Calculating the winner & confirming it"
       subTitle={`Seconds remaining: 10`}
       extra={
