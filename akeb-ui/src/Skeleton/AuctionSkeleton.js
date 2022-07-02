@@ -50,7 +50,12 @@ const AuctionSkeleton = ({ children }) => {
                 setMethodologyModalVisible={setMethodologyModalVisible}
               />
             </Menu.Item>
-            <Menu.Item key="1" style={{ float: "right" }}>
+            <Menu.Item
+              key="1"
+              style={{
+                float: "right",
+              }}
+            >
               <Button type="link" onClick={aboutMeClicked}>
                 About
               </Button>

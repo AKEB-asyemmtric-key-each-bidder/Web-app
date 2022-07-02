@@ -9,7 +9,7 @@ import StepStateContext from "./Context/StepStateContext";
 import Bid from "./Steps/Bid";
 import Confirm from "./Steps/Confirm";
 import End from "./Steps/End/End";
-import Passphrase from "./Steps/Nonce";
+import Nonce from "./Steps/Nonce";
 import BlockchainContext from "./Context/BlockchainContext";
 import BidsContext from "./Context/BidsContext";
 import AuctionSkeleton from "./Skeleton/AuctionSkeleton";
@@ -17,7 +17,7 @@ import GeneralInfo from "./GeneralInfo/GeneralInfo";
 
 function App() {
   // 0: Connect, 1: Enter
-  // 2: Bid, 3: Passphrase,
+  // 2: Bid, 3: Nonce,
   // 4: Confirm ,5: End
   const [stepsState, setStepsState] = useState(0);
 
@@ -35,7 +35,7 @@ function App() {
   const steps = [
     <Connect />,
     <Enter />,
-    <Passphrase />,
+    <Nonce />,
     <Bid />,
     <Confirm />,
     <End />,
@@ -71,7 +71,7 @@ function App() {
             }}
           >
             <StepStateContext.Provider value={{ stepsState, setStepsState }}>
-              <Row gutter={[16, 16]}>
+              <Row gutter={[16, 16]} style={{ marginTop: "20px" }}>
                 <Col span={24}>
                   <StepsBar />
                 </Col>
