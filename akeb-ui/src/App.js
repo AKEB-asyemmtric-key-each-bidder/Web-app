@@ -10,7 +10,7 @@ import Enter from "./Steps/Enter";
 import StepStateContext from "./Context/StepStateContext";
 import Bid from "./Steps/Bid";
 import Confirm from "./Steps/Confirm";
-import End from "./Steps/End";
+import End from "./Steps/End/End";
 import Passphrase from "./Steps/Nonce";
 import BlockchainContext from "./Context/BlockchainContext";
 import BidsContext from "./Context/BidsContext";
