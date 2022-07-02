@@ -30,9 +30,9 @@ function App() {
   const [nonce, setNonce] = useState();
   const [bid, setBid] = useState();
   const [encodedBid, setEncodedBid] = useState();
-  const [winnerAddress, setWinnerAddress] = useState();
-  const [winnerBid, setWinnerBid] = useState();
-  const [winnerNonce, setWinnerNonce] = useState();
+  const [winnerAddress, setWinnerAddress] = useState("0Xfdslfjsdlfjsdfsf");
+  const [winnerBid, setWinnerBid] = useState("0.000098");
+  const [winnerNonce, setWinnerNonce] = useState("secretNonce");
 
   const steps = [
     <Connect />,
