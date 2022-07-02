@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import {
-  MoneyCollectFilled,
+  DollarCircleFilled,
   ExperimentFilled,
   RightCircleFilled,
   WalletFilled,
@@ -22,7 +22,7 @@ const StepsBar = () => {
       <Step title="Connect" icon={<WalletFilled />} />
       <Step title="Enter" icon={<RightCircleFilled />} />
       <Step title="Nonce" icon={<InteractionFilled rotate={90} />} />
-      <Step title="Bid" icon={<MoneyCollectFilled />} />
+      <Step title="Bid" icon={<DollarCircleFilled />} />
       <Step title="Validate" icon={<ExperimentFilled />} />
       <Step title="End" icon={<TrophyFilled />} />
     </Steps>
