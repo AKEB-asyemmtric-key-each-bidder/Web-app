@@ -1,4 +1,4 @@
-import { Button, Card } from "antd";
+import { Card } from "antd";
 import React from "react";
 
 const ViewSmartContract = () => {

@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Button, Col, Row } from "antd";
-import createAKEBContract from "./ABI/AKEB";
-import Web3 from "web3";
+import React, { useState } from "react";
+import { Col, Row } from "antd";
 
 import "antd/dist/antd.css";
 import StepsBar from "./StepsBar";
@@ -30,9 +28,9 @@ function App() {
   const [nonce, setNonce] = useState();
   const [bid, setBid] = useState();
   const [encodedBid, setEncodedBid] = useState();
-  const [winnerAddress, setWinnerAddress] = useState("0Xfdslfjsdlfjsdfsf");
-  const [winnerBid, setWinnerBid] = useState("0.000098");
-  const [winnerNonce, setWinnerNonce] = useState("secretNonce");
+  const [winnerAddress, setWinnerAddress] = useState();
+  const [winnerBid, setWinnerBid] = useState();
+  const [winnerNonce, setWinnerNonce] = useState();
 
   const steps = [
     <Connect />,
