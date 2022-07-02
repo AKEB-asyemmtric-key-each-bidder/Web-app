@@ -1,6 +1,6 @@
 import { Button, Form, Input, Result } from "antd";
 import React, { useContext } from "react";
-import { RocketFilled } from "@ant-design/icons";
+import { InteractionFilled } from "@ant-design/icons";
 import BidsContext from "../Context/BidsContext";
 import StepStateContext from "../Context/StepStateContext";
 
@@ -40,7 +40,7 @@ const Nonce = () => {
 
   return (
     <Result
-      icon={<RocketFilled />}
+      icon={<InteractionFilled rotate={90} />}
       title="Please enter your nonce"
       subTitle="Nonce will be added to bid for randomizing value and making it harder to guess"
       extra={<NonceForm />}

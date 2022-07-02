@@ -3,13 +3,13 @@ import { ExperimentFilled } from "@ant-design/icons";
 import { Button, Result } from "antd";
 import StepStateContext from "../Context/StepStateContext";
 
-const Confirm = () => {
+const Validate = () => {
   const { stepsState, setStepsState } = useContext(StepStateContext);
 
   return (
     <Result
       icon={<ExperimentFilled spin />}
-      title="Calculating the winner & confirming it"
+      title="Calculating the winner & validating it..."
       subTitle={`Seconds remaining: 10`}
       extra={
         <Button
@@ -24,4 +24,4 @@ const Confirm = () => {
   );
 };
 
-export default Confirm;
+export default Validate;
