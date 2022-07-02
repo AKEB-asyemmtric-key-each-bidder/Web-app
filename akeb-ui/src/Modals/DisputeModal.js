@@ -1,4 +1,4 @@
-import { Modal, Tag, Typography } from "antd";
+import { Divider, Modal, Tag, Typography } from "antd";
 import React, { useContext, useState } from "react";
 import BidsContext from "../Context/BidsContext";
 
@@ -24,6 +24,10 @@ const DisputeModal = ({ disputeModalVisible, setDisputeModalVisible }) => {
       okText="Dispute"
       okButtonProps={{ type: "danger", loading: loading }}
     >
+      <Paragraph>
+        If you think there is a mistake in finding the winner, you can dispute
+      </Paragraph>
+      <Divider />
       <Paragraph>
         By requesting dispute, the following information will be revealed to
         blockchain network to validate your request
