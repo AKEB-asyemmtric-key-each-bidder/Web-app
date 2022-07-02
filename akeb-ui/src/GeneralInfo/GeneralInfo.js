@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import BidsContext from "../Context/BidsContext";
 import BlockchainContext from "../Context/BlockchainContext";
 import GeneralInfoCard from "./GeneralInfoCard";
+import ViewEtherCard from "./ViewEtherCard";
 
 const GeneralInfo = () => {
   const { address } = useContext(BlockchainContext);
@@ -25,7 +26,9 @@ const GeneralInfo = () => {
       <Col span={12}>
         <GeneralInfoCard title="Dispute" value="No" />
       </Col>
-      <Col span={12}>View on EtherScan</Col>
+      <Col span={12}>
+        <ViewEtherCard />
+      </Col>
     </Row>
   );
 };
