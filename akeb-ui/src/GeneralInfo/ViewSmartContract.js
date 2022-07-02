@@ -1,7 +1,7 @@
 import { Button, Card } from "antd";
 import React from "react";
 
-const ViewEtherCard = () => {
+const ViewSmartContract = () => {
   return (
     <Card>
       <a
@@ -15,4 +15,4 @@ const ViewEtherCard = () => {
   );
 };
 
-export default ViewEtherCard;
+export default ViewSmartContract;
