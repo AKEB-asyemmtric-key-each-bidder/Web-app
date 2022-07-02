@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Image, Layout, Menu, Space, Typography } from "antd";
 import Logo from "../Statics/Images/Logo.png";
 
 import "../Statics/Styles/Styles.css";
+import AboutMeModal from "../Modals/AboutMeModal";
 
 const { Text } = Typography;
 const { Header, Content, Footer } = Layout;
 
 const AuctionSkeleton = ({ children }) => {
+  const [isAboutMeModalVisible, setIsAboutMeModalVisible] = useState(false);
+
+  const aboutMeClicked = () => {
+    setIsAboutMeModalVisible(true);
+  };
+
   return (
     <Layout>
       <Header style={{ background: "#F0F2F5" }}>
@@ -32,7 +39,13 @@ const AuctionSkeleton = ({ children }) => {
               <Button type="link">Methodology</Button>
             </Menu.Item>
             <Menu.Item key="1" style={{ float: "right" }}>
-              <Button type="link">About</Button>
+              <Button type="link" onClick={aboutMeClicked}>
+                About
+              </Button>
+              <AboutMeModal
+                isAboutMeModalVisible={isAboutMeModalVisible}
+                setIsAboutMeModalVisible={setIsAboutMeModalVisible}
+              />
             </Menu.Item>
           </div>
         </Menu>
