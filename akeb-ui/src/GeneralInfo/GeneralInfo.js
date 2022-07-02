@@ -17,7 +17,7 @@ const GeneralInfo = () => {
         <GeneralInfoCard title="Nonce" value={nonce} />
       </Col>
       <Col span={12}>
-        <GeneralInfoCard title="Bid" value={bid} />
+        <GeneralInfoCard title="Bid" value={bid} suffix="Ether" />
       </Col>
       <Col span={12}>
         <GeneralInfoCard title="Encoded value" value={encodedBid} />
