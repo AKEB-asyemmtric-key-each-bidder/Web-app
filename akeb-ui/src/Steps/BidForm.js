@@ -25,7 +25,8 @@ const BidForm = () => {
     // getSubmittedEncodedBid();
 
     // To be removed when AWS is completed
-    setStepsState(stepsState + 1);
+    const input = values["bid"];
+    setBid(input);
   };
 
   const getSubmittedEncodedBid = async () => {
@@ -47,8 +48,14 @@ const BidForm = () => {
     setEncodedBid(res);
   };
 
+  // To be uncommented when AWS is implemented
+  // useEffect(() => {
+  //   encodedBid && submitEncodedBid();
+  // }, [encodedBid]);
+
+  // To be uncommented when AWS is implemented
   useEffect(() => {
-    encodedBid && submitEncodedBid();
+    encodedBid && setStepsState(stepsState + 1);
   }, [encodedBid]);
 
   const submitEncodedBid = async () => {
