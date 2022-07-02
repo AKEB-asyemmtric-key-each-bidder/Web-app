@@ -1,22 +1,28 @@
 import { Modal, Tag, Typography } from "antd";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import BidsContext from "../Context/BidsContext";
 
 const { Paragraph } = Typography;
 
 const DisputeModal = ({ disputeModalVisible, setDisputeModalVisible }) => {
   const { nonce, bid } = useContext(BidsContext);
+  const [loading, setLoading] = useState(false);
   const onClose = () => {
     setDisputeModalVisible(false);
   };
+
+  const okClicked = () => {
+    setLoading(true);
+  };
+
   return (
     <Modal
       title="Dispute request"
       visible={disputeModalVisible}
       onCancel={onClose}
-      onOk={onClose}
+      onOk={okClicked}
       okText="Dispute"
-      okButtonProps={{ type: "danger" }}
+      okButtonProps={{ type: "danger", loading: loading }}
     >
       <Paragraph>
         By requesting dispute, the following information will be revealed to
