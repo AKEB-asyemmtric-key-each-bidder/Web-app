@@ -30,6 +30,9 @@ function App() {
   const [nonce, setNonce] = useState();
   const [bid, setBid] = useState();
   const [encodedBid, setEncodedBid] = useState();
+  const [winnerAddress, setWinnerAddress] = useState();
+  const [winnerBid, setWinnerBid] = useState();
+  const [winnerNonce, setWinnerNonce] = useState();
 
   const steps = [
     <Connect />,
@@ -44,7 +47,20 @@ function App() {
     <div style={{ background: "#F0F2F5", height: "100vh" }}>
       <AuctionSkeleton>
         <BidsContext.Provider
-          value={{ nonce, setNonce, bid, setBid, encodedBid, setEncodedBid }}
+          value={{
+            nonce,
+            setNonce,
+            bid,
+            setBid,
+            encodedBid,
+            setEncodedBid,
+            winnerAddress,
+            setWinnerAddress,
+            winnerBid,
+            setWinnerBid,
+            winnerNonce,
+            setWinnerNonce,
+          }}
         >
           <BlockchainContext.Provider
             value={{
