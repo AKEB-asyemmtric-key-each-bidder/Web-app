@@ -4,15 +4,21 @@ import Logo from "../Statics/Images/Logo.png";
 
 import "../Statics/Styles/Styles.css";
 import AboutMeModal from "../Modals/AboutMeModal";
+import MethodologyModal from "../Modals/MethodologyModal";
 
 const { Text } = Typography;
 const { Header, Content, Footer } = Layout;
 
 const AuctionSkeleton = ({ children }) => {
   const [isAboutMeModalVisible, setIsAboutMeModalVisible] = useState(false);
+  const [methodologyModalVisible, setMethodologyModalVisible] = useState(false);
 
   const aboutMeClicked = () => {
     setIsAboutMeModalVisible(true);
+  };
+
+  const methodClicked = () => {
+    setMethodologyModalVisible(true);
   };
 
   return (
@@ -36,7 +42,13 @@ const AuctionSkeleton = ({ children }) => {
             }}
           >
             <Menu.Item key="0" style={{ float: "right" }}>
-              <Button type="link">Methodology</Button>
+              <Button type="link" onClick={methodClicked}>
+                Methodology
+              </Button>
+              <MethodologyModal
+                methodologyModalVisible={methodologyModalVisible}
+                setMethodologyModalVisible={setMethodologyModalVisible}
+              />
             </Menu.Item>
             <Menu.Item key="1" style={{ float: "right" }}>
               <Button type="link" onClick={aboutMeClicked}>
