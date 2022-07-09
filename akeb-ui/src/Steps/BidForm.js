@@ -32,8 +32,14 @@ const BidForm = () => {
   //   });
   // };
 
+  // To be uncommented in the final version
+  // useEffect(() => {
+  //   bid && encryptBid();
+  // }, [bid]);
+
+  // To be removed in the final version
   useEffect(() => {
-    bid && encryptBid();
+    bid && submitBidIntoBackend();
   }, [bid]);
 
   const encryptBid = () => {
@@ -42,10 +48,10 @@ const BidForm = () => {
   };
 
   useEffect(() => {
-    encodedBid && submitEncodedBid();
+    encodedBid && submitEncodedBidIntoBC();
   }, [encodedBid]);
 
-  const submitEncodedBid = async () => {
+  const submitEncodedBidIntoBC = async () => {
     await contract.methods
       .submitEncryptedBid(encodedBid)
       .send({ from: address }, (error, res) => {
@@ -63,7 +69,7 @@ const BidForm = () => {
     const body = { bid: bid };
     axios.post(url, body).then((res, error) => {
       if (error) {
-        console.log("error in submitting bids into blockchain", error);
+        console.log("error in submitting bids into backend", error);
         return;
       }
       setStepsState(stepsState + 1);

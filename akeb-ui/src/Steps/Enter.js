@@ -11,10 +11,12 @@ const Enter = () => {
   const [loading, setLoading] = useState(false);
 
   const onEnterHandler = () => {
-    registerBidderOnBC();
+    // To be uncommented in the final version
+    // registerBidderOnBC();
     setLoading(true);
-    // registerBidderOnBackEnd();
-    // setStepsState(stepsState + 1);
+
+    // To be removed in final version
+    registerBidderOnBackEnd();
   };
 
   const registerBidderOnBC = async () => {
