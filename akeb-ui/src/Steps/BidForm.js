@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
 import CryptoJS from "crypto-js";
 import { Button, Form, InputNumber } from "antd";
 import BidsContext from "../Context/BidsContext";
@@ -15,29 +16,21 @@ const BidForm = () => {
   const [loading, setLoading] = useState(false);
 
   const onBidFormFinished = (values) => {
-    // Uncommented when AWS is implemented
-    // setLoading(true);
-    // const input = values["bid"];
-    // setBid(input);
-
-    // For checking if smart contract has value in it
-    // To be removed when AWS is completed
-    // getSubmittedEncodedBid();
-
-    // To be removed when AWS is completed
+    // Uncommented when Back-end is implemented
+    setLoading(true);
     const input = values["bid"];
     setBid(input);
   };
 
-  const getSubmittedEncodedBid = async () => {
-    await contract.methods.getEncodedBid(address).call((error, res) => {
-      if (error) {
-        console.log("error in getting submitted data", error);
-        return;
-      }
-      console.log("res of submitted encoded bid", res);
-    });
-  };
+  // const getSubmittedEncodedBid = async () => {
+  //   await contract.methods.getEncodedBid(address).call((error, res) => {
+  //     if (error) {
+  //       console.log("error in getting submitted data", error);
+  //       return;
+  //     }
+  //     console.log("res of submitted encoded bid", res);
+  //   });
+  // };
 
   useEffect(() => {
     bid && encryptBid();
@@ -48,14 +41,8 @@ const BidForm = () => {
     setEncodedBid(res);
   };
 
-  // To be uncommented when AWS is implemented
-  // useEffect(() => {
-  //   encodedBid && submitEncodedBid();
-  // }, [encodedBid]);
-
-  // To be uncommented when AWS is implemented
   useEffect(() => {
-    encodedBid && setStepsState(stepsState + 1);
+    encodedBid && submitEncodedBid();
   }, [encodedBid]);
 
   const submitEncodedBid = async () => {
@@ -64,12 +51,23 @@ const BidForm = () => {
       .send({ from: address }, (error, res) => {
         setLoading(false);
         if (error) {
-          console.log("error in submitting encoded bid");
+          console.log("error in submitting encoded bid", error);
           return;
         }
-        console.log("res of submitting encoded bid", res);
-        setStepsState(stepsState + 1);
+        submitBidIntoBackend();
       });
+  };
+
+  const submitBidIntoBackend = () => {
+    const url = "http://127.0.0.1:8000/submit-bid/";
+    const body = { bid: bid };
+    axios.post(url, body).then((res, error) => {
+      if (error) {
+        console.log("error in submitting bids into blockchain", error);
+        return;
+      }
+      setStepsState(stepsState + 1);
+    });
   };
 
   return (
