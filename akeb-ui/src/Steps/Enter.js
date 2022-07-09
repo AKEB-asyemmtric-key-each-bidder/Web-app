@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import axios from "axios";
 import { Button, Result } from "antd";
 import { RightCircleFilled } from "@ant-design/icons";
 import StepStateContext from "../Context/StepStateContext";
@@ -10,12 +11,13 @@ const Enter = () => {
   const [loading, setLoading] = useState(false);
 
   const onEnterHandler = () => {
-    // registerBidder();
-    // setLoading(true);
-    setStepsState(stepsState + 1);
+    registerBidderOnBC();
+    setLoading(true);
+    // registerBidderOnBackEnd();
+    // setStepsState(stepsState + 1);
   };
 
-  const registerBidder = async () => {
+  const registerBidderOnBC = async () => {
     await contract.methods
       .registerBidder()
       .send({ from: address }, function(error, res) {
@@ -26,9 +28,20 @@ const Enter = () => {
           return;
         }
 
-        setStepsState(stepsState + 1);
-        // console.log("res", res);
+        registerBidderOnBackEnd();
       });
+  };
+
+  const registerBidderOnBackEnd = () => {
+    let url = "http://127.0.0.1:8000/increment-number-of-bidders/";
+    axios.get(url).then((res, error) => {
+      if (error) {
+        console.log("error", error);
+      }
+      setStepsState(stepsState + 1);
+
+      console.log("res", res);
+    });
   };
 
   return (
