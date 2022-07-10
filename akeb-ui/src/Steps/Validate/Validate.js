@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { ExperimentFilled } from "@ant-design/icons";
 import { Button, Result } from "antd";
-import StepStateContext from "../Context/StepStateContext";
+import StepStateContext from "../../Context/StepStateContext";
 
 const Validate = () => {
   const { stepsState, setStepsState } = useContext(StepStateContext);
+
+  useEffect(() => {}, []);
 
   return (
     <Result

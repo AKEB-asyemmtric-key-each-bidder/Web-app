@@ -7,7 +7,7 @@ import Connect from "./Steps/Connect/Connect";
 import Enter from "./Steps/Enter";
 import StepStateContext from "./Context/StepStateContext";
 import Bid from "./Steps/Bid";
-import Validate from "./Steps/Validate";
+import Validate from "./Steps/Validate/Validate";
 import End from "./Steps/End/End";
 import Nonce from "./Steps/Nonce";
 import BlockchainContext from "./Context/BlockchainContext";
