@@ -10,6 +10,8 @@ const fetchWinnerFromBackEnd = (setWinnerValue, timeOutID) => {
     }
     const obj = JSON.parse(res.data);
     const winner = obj["winner"];
+
+    // Stop the timer
     if (winner != -1000) {
       clearInterval(timeOutID);
       setWinnerValue(winner);
@@ -20,4 +22,15 @@ const fetchWinnerFromBackEnd = (setWinnerValue, timeOutID) => {
   });
 };
 
+const fetchWinnerInfoFromBC = async (contract) => {
+  await contract.methods.getWinnerBid().call((error, res) => {
+    if (error) {
+      console.log("Error in fetching winner info in BC", error);
+      return;
+    }
+    console.log("res", res);
+  });
+};
+
 export default fetchWinnerFromBackEnd;
+export { fetchWinnerInfoFromBC };
