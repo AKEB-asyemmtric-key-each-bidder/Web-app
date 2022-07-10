@@ -1,0 +1,17 @@
+import axios from "axios";
+
+const fetchWinnerFromBackEnd = (setIsBackEndInWinnerCalulationProcess) => {
+  console.log("in API call");
+  const url = "http://127.0.0.1:8000/get-winner/";
+  axios.get(url).then((res, error) => {
+    if (error) {
+      //   console.log("error in fetching winner from backend", error);
+      return;
+    }
+    const obj = JSON.parse(res.data);
+    const winner = obj["winner"];
+    console.log("winner", winner);
+  });
+};
+
+export default fetchWinnerFromBackEnd;
