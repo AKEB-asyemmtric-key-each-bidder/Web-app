@@ -6,41 +6,41 @@ import fetchWinnerFromBackEnd from "./Networks";
 
 const Validate = () => {
   const { stepsState, setStepsState } = useContext(StepStateContext);
-  const [
-    isBackEndInWinnerCalulationProcess,
-    setIsBackEndInWinnerCalulationProcess,
-  ] = useState(true);
-  const [run, setRun] = useState(true);
+  const [winnerValue, setWinnerValue] = useState();
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    run && performLoop();
-    if (run == true) {
-      setRun(false);
-    }
-    console.log("in use effect");
-    // isBackEndInWinnerCalulationProcess && performLoop();
-  }, [run]);
+  // useEffect(() => {
+  //   console.log("in useEffect");
+  //   winnerValue == -1000 && performLoop();
+  // }, [winnerValue]);
+
+  const validateClicked = () => {
+    setLoading(true);
+    // setWinnerValue(-1000);
+    performLoop();
+  };
 
   const performLoop = () => {
     console.log("in loop");
-    const timeOutID = setTimeout(() => {
-      fetchWinnerFromBackEnd(setIsBackEndInWinnerCalulationProcess);
+    const timeOutID = setInterval(() => {
+      fetchWinnerFromBackEnd(setWinnerValue, timeOutID);
     }, 3000);
-    return () => clearTimeout(timeOutID);
+    return () => clearInterval(timeOutID);
   };
 
   return (
     <Result
-      icon={<ExperimentFilled spin />}
+      icon={<ExperimentFilled spin={loading} />}
       title="Calculating the winner & validating it..."
       subTitle={`Seconds remaining: 10`}
       extra={
         <Button
-          onClick={() => {
-            setStepsState(stepsState + 1);
-          }}
+          loading={loading}
+          size="large"
+          type="primary"
+          onClick={validateClicked}
         >
-          next
+          Validate
         </Button>
       }
     />
