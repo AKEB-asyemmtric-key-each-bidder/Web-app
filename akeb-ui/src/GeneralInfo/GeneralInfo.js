@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import BidsContext from "../Context/BidsContext";
 import BlockchainContext from "../Context/BlockchainContext";
 import GeneralInfoCard from "./GeneralInfoCard";
-import ViewSmartContract from "./ViewSmartContract";
+import SmartContractActions from "./SmartContractActions";
 
 const GeneralInfo = () => {
   const { address } = useContext(BlockchainContext);
@@ -27,7 +27,7 @@ const GeneralInfo = () => {
         <GeneralInfoCard title="Dispute" value="No" />
       </Col>
       <Col span={12}>
-        <ViewSmartContract />
+        <SmartContractActions />
       </Col>
     </Row>
   );
