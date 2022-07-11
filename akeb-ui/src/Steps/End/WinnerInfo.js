@@ -13,6 +13,7 @@ const WinnerInfo = () => {
           </li>
           <li>
             Bid: <Tag>{winnerBid}</Tag>
+            <Tag>GWei</Tag>
           </li>
           <li>
             Nonce: <Tag>{winnerNonce}</Tag>
