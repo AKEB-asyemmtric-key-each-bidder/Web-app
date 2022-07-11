@@ -2,14 +2,28 @@ import React, { useContext, useEffect, useState } from "react";
 import { ExperimentFilled } from "@ant-design/icons";
 import { Button, Result } from "antd";
 import StepStateContext from "../../Context/StepStateContext";
-import fetchWinnerFromBackEnd, { fetchWinnerInfoFromBC } from "./Networks";
+import fetchWinnerFromBackEnd, {
+  fetchWinnerAddressFromBC,
+  fetchWinnerBidFromBC,
+  fetchWinnerNonceFromBC,
+  submitWinnerInfoIntoBC,
+} from "./Networks";
 import compareBidWithWinnerValue from "./Logic";
 import BidsContext from "../../Context/BidsContext";
 import BlockchainContext from "../../Context/BlockchainContext";
 
 const Validate = () => {
   const { stepsState, setStepsState } = useContext(StepStateContext);
-  const { bid } = useContext(BidsContext);
+  const {
+    bid,
+    nonce,
+    winnerBid,
+    setWinnerBid,
+    winnerAddress,
+    setWinnerAddress,
+    winnerNonce,
+    setWinnerNonce,
+  } = useContext(BidsContext);
   const [winnerValue, setWinnerValue] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -45,9 +59,36 @@ const Validate = () => {
   const performBCLoop = () => {
     console.log("In BC loop");
     const intervalID = setInterval(() => {
-      fetchWinnerInfoFromBC(contract);
+      fetchWinnerBidFromBC(contract, intervalID, setWinnerBid);
     }, 3000);
   };
+
+  useEffect(() => {
+    winnerBid && fetchWinnerAddressFromBC(contract, setWinnerAddress);
+  }, [winnerBid]);
+
+  useEffect(() => {
+    winnerAddress && fetchWinnerNonceFromBC(contract, setWinnerNonce);
+  }, [winnerAddress]);
+
+  useEffect(() => {
+    winnerNonce && setStepsState(stepsState + 1);
+  }, [winnerNonce]);
+
+  useEffect(() => {
+    bidderPosition == 1 &&
+      submitWinnerInfoIntoBC(
+        contract,
+        bid,
+        address,
+        nonce,
+        setStepsState,
+        stepsState,
+        setWinnerAddress,
+        setWinnerBid,
+        setWinnerNonce
+      );
+  }, [bidderPosition]);
 
   return (
     <Result
