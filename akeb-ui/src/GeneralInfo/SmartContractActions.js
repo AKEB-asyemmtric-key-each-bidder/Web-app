@@ -2,7 +2,6 @@ import { Button, Card } from "antd";
 import React, { useContext, useState } from "react";
 import BlockchainContext from "../Context/BlockchainContext";
 import resetSmartContract from "../Networks/ResetSM";
-import showSuccessNotif from "../Notification/ShowSuccessNotif";
 
 const SmartContractActions = () => {
   const [loading, setLoading] = useState(false);
