@@ -5,7 +5,7 @@ const ViewSmartContract = () => {
   return (
     <Card>
       <a
-        href="https://rinkeby.etherscan.io/address/0x06602d0adf53e42c9afcd163cc3e0f1c46cd8c88"
+        href="https://rinkeby.etherscan.io/address/0x340cAbE162eA92b1CcBADb6eBf696369b2148798"
         target="_blank"
         rel="noopener noreferrer"
       >

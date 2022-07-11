@@ -53,7 +53,7 @@ const BidForm = () => {
 
   const submitEncodedBidIntoBC = async () => {
     await contract.methods
-      .submitEncryptedBid(encodedBid)
+      .submitEncodedBid(encodedBid)
       .send({ from: address }, (error, res) => {
         setLoading(false);
         if (error) {
