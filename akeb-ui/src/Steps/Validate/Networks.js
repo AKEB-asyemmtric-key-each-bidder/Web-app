@@ -78,7 +78,7 @@ const submitWinnerInfoIntoBC = async (
         return;
       }
       setWinnerAddress(address);
-      setWinnerBid(bid);
+      setWinnerBid(bidInGWei);
       setWinnerNonce(nonce);
       setStepsState(stepsState + 1);
     });
