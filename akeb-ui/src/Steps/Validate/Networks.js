@@ -47,7 +47,7 @@ const fetchWinnerAddressFromBC = async (contract, setWinnerAddress) => {
 };
 
 const fetchWinnerNonceFromBC = async (contract, setWinnerNonce) => {
-  await contract.methods.getWinnerKey().call((error, res) => {
+  await contract.methods.getwinnerNonce().call((error, res) => {
     if (error) {
       console.log("Error in fetching winner nonce from BC", error);
       return;
