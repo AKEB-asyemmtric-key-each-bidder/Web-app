@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "antd";
+import { Space, Table, Tag } from "antd";
 
 const ViewDisputedListTable = ({ data }) => {
   const cols = [
@@ -17,6 +17,12 @@ const ViewDisputedListTable = ({ data }) => {
       title: "Bid",
       dataIndex: "bid",
       key: "bid",
+      render: (bid) => (
+        <Space direction="horizontal">
+          {bid}
+          <Tag color="#108ee9">GWEI</Tag>
+        </Space>
+      ),
     },
   ];
   return <Table dataSource={data} columns={cols} />;
