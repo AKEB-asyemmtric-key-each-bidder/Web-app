@@ -1,5 +1,5 @@
 import React from "react";
-import { Spin } from "antd";
+import { Row, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 
 const Spinner = () => {
@@ -12,7 +12,11 @@ const Spinner = () => {
     />
   );
 
-  return <Spin indicator={spinIcon} />;
+  return (
+    <Row justify="center">
+      <Spin indicator={spinIcon} />
+    </Row>
+  );
 };
 
 export default Spinner;
