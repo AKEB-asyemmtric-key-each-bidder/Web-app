@@ -1,14 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, Modal } from "antd";
+import BlockchainContext from "../Context/BlockchainContext";
 import ViewDisputedListTable from "../Tables/ViewDisputedListTable";
+import fetchListOfDisputers from "../Networks/FetchListOfDisputers";
+import Spinner from "../Spinners/Spinner";
 
 const ViewDisputedListModal = ({ visible, setVisible }) => {
+  const { contract } = useContext(BlockchainContext);
+  const [loadingData, setLoadingData] = useState(true);
   const cancelClicked = () => {
     setVisible(false);
   };
 
   useEffect(() => {
-    visible && console.log("in view disputed list modal");
+    visible && fetchListOfDisputers(contract);
   }, [visible]);
 
   return (
@@ -19,7 +24,7 @@ const ViewDisputedListModal = ({ visible, setVisible }) => {
       title="List of disputed bidders"
       footer={null}
     >
-      <ViewDisputedListTable />
+      {loadingData ? <Spinner /> : <ViewDisputedListTable />}
     </Modal>
   );
 };
