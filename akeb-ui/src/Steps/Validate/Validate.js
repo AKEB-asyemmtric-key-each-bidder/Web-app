@@ -11,6 +11,7 @@ import compareBidWithWinnerValue from "./Logic";
 import BidsContext from "../../Context/BidsContext";
 import BlockchainContext from "../../Context/BlockchainContext";
 import SubmitWinnerModal from "../../Modals/SubmitWinnerModal";
+import DisputeMandatoryModal from "../../Modals/DisuteMandatoryModal";
 
 const Validate = () => {
   const { stepsState, setStepsState } = useContext(StepStateContext);
@@ -29,6 +30,7 @@ const Validate = () => {
   const [submitWinnerModalVisible, setSubmitWinnerModalVisible] = useState(
     false
   );
+  const [disputeModalVisible, setDisputeModalVisible] = useState(false);
 
   // 0: winnerValue > bid
   // 1 : winnerValue == bid
@@ -52,6 +54,7 @@ const Validate = () => {
 
   useEffect(() => {
     winnerValue != -1000 &&
+      winnerValue &&
       compareBidWithWinnerValue(winnerValue, bid, setBidderPosition);
   }, [winnerValue]);
 
@@ -82,6 +85,10 @@ const Validate = () => {
     bidderPosition == 1 && setSubmitWinnerModalVisible(true);
   }, [bidderPosition]);
 
+  useEffect(() => {
+    bidderPosition == 2 && setDisputeModalVisible(true);
+  }, [bidderPosition]);
+
   return (
     <React.Fragment>
       <Result
@@ -102,6 +109,10 @@ const Validate = () => {
       <SubmitWinnerModal
         visible={submitWinnerModalVisible}
         setVisible={setSubmitWinnerModalVisible}
+      />
+      <DisputeMandatoryModal
+        visible={disputeModalVisible}
+        setVisible={setDisputeModalVisible}
       />
     </React.Fragment>
   );

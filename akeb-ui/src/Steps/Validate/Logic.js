@@ -5,7 +5,7 @@ const compareBidWithWinnerValue = (winnerValue, bid, setBidderPosition) => {
     setBidderPosition(0);
   } else if (winnerValue == bid) {
     setBidderPosition(1);
-  } else {
+  } else if (winnerValue < bid) {
     setBidderPosition(2);
   }
 };
