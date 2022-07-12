@@ -1,15 +1,24 @@
 import { Button, Card } from "antd";
 import React, { useContext, useState } from "react";
 import BlockchainContext from "../Context/BlockchainContext";
+import ViewDisputedListModal from "../Modals/ViewDisputedListModal";
 import resetSmartContract from "../Networks/ResetSM";
 
 const SmartContractActions = () => {
   const [loading, setLoading] = useState(false);
   const { contract, address } = useContext(BlockchainContext);
+  const [
+    viewDisputedListModalVisible,
+    setViewDisputedListModalVisible,
+  ] = useState(false);
 
   const resetClicked = () => {
     setLoading(true);
     resetSmartContract(contract, setLoading, address);
+  };
+
+  const viewDisputedListClicked = () => {
+    setViewDisputedListModalVisible(true);
   };
 
   return (
@@ -24,16 +33,33 @@ const SmartContractActions = () => {
             View the smart contract
           </a>
         </li>
-        <li>
-          <Button
-            type="link"
-            style={{ paddingLeft: "0px" }}
-            onClick={resetClicked}
-            loading={loading}
-          >
-            Reset smart contract
-          </Button>
-        </li>
+        {contract && (
+          <>
+            <li>
+              <Button
+                type="link"
+                style={{ paddingLeft: "0px" }}
+                onClick={resetClicked}
+                loading={loading}
+              >
+                Reset smart contract
+              </Button>
+            </li>
+            <li>
+              <Button
+                type="link"
+                style={{ paddingLeft: "0px" }}
+                onClick={viewDisputedListClicked}
+              >
+                View disputed list
+              </Button>
+              <ViewDisputedListModal
+                visible={viewDisputedListModalVisible}
+                setVisible={setViewDisputedListModalVisible}
+              />
+            </li>
+          </>
+        )}
       </ul>
     </Card>
   );
