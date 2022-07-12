@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Modal } from "antd";
 import ViewDisputedListTable from "../Tables/ViewDisputedListTable";
 
@@ -6,6 +6,10 @@ const ViewDisputedListModal = ({ visible, setVisible }) => {
   const cancelClicked = () => {
     setVisible(false);
   };
+
+  useEffect(() => {
+    visible && console.log("in view disputed list modal");
+  }, [visible]);
 
   return (
     <Modal
