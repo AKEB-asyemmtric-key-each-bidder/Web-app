@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Modal } from "antd";
+import ViewDisputedListTable from "../Tables/ViewDisputedListTable";
 
 const ViewDisputedListModal = ({ visible, setVisible }) => {
   const cancelClicked = () => {
@@ -14,7 +15,7 @@ const ViewDisputedListModal = ({ visible, setVisible }) => {
       title="List of disputed bidders"
       footer={null}
     >
-      Disputed bidders
+      <ViewDisputedListTable />
     </Modal>
   );
 };
