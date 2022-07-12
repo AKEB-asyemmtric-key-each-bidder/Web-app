@@ -8,12 +8,14 @@ import Spinner from "../Spinners/Spinner";
 const ViewDisputedListModal = ({ visible, setVisible }) => {
   const { contract } = useContext(BlockchainContext);
   const [loadingData, setLoadingData] = useState(true);
+  const [data, setData] = useState([]);
+
   const cancelClicked = () => {
     setVisible(false);
   };
 
   useEffect(() => {
-    visible && fetchListOfDisputers(contract);
+    visible && fetchListOfDisputers(contract, setData, setLoadingData);
   }, [visible]);
 
   return (
@@ -24,7 +26,7 @@ const ViewDisputedListModal = ({ visible, setVisible }) => {
       title="List of disputed bidders"
       footer={null}
     >
-      {loadingData ? <Spinner /> : <ViewDisputedListTable />}
+      {loadingData ? <Spinner /> : <ViewDisputedListTable data={data} />}
     </Modal>
   );
 };

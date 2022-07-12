@@ -1,10 +1,14 @@
-const fetchListOfDisputers = async (contract) => {
+import formDisputtersdata from "../Logics/FormDisputtersdata";
+
+const fetchListOfDisputers = async (contract, setData, setLoadingData) => {
   await contract.methods.getAllDisputers().call((error, res) => {
     if (error) {
       console.error("Error in fetching all disputers", error);
       return;
     }
-    console.info("list of all disputers", res);
+    const data = formDisputtersdata(res);
+    setLoadingData(false);
+    setData(data);
   });
 };
 
