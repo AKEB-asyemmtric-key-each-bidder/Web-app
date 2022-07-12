@@ -4,10 +4,11 @@ import React, { useContext, useState } from "react";
 import BlockchainContext from "../Context/BlockchainContext";
 import BidsContext from "../Context/BidsContext";
 import StepStateContext from "../Context/StepStateContext";
+import disputeRequestNetwork from "../Networks/DisputeRequestNetwork";
 
 const { Paragraph } = Typography;
 
-const DisputeMandatoryModal = ({ visible, setVisible }) => {
+const DisputeMandatoryModal = ({ visible, setVisible, setBidderPosition }) => {
   const { address, contract } = useContext(BlockchainContext);
   const { nonce, bid } = useContext(BidsContext);
   const { stepsState, setStepsState } = useContext(StepStateContext);
@@ -15,6 +16,14 @@ const DisputeMandatoryModal = ({ visible, setVisible }) => {
 
   const disputeClicked = () => {
     setLoading(true);
+    disputeRequestNetwork(
+      contract,
+      bid,
+      nonce,
+      address,
+      setVisible,
+      setBidderPosition
+    );
   };
 
   return (

@@ -113,6 +113,7 @@ const Validate = () => {
       <DisputeMandatoryModal
         visible={disputeModalVisible}
         setVisible={setDisputeModalVisible}
+        setBidderPosition={setBidderPosition}
       />
     </React.Fragment>
   );
