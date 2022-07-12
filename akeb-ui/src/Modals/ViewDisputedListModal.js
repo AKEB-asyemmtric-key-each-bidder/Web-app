@@ -25,6 +25,7 @@ const ViewDisputedListModal = ({ visible, setVisible }) => {
       onCancel={cancelClicked}
       title="List of disputed bidders"
       footer={null}
+      width={1000}
     >
       {loadingData ? <Spinner /> : <ViewDisputedListTable data={data} />}
     </Modal>
