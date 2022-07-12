@@ -65,7 +65,9 @@ const submitWinnerInfoIntoBC = async (
   stepsState,
   setWinnerAddress,
   setWinnerBid,
-  setWinnerNonce
+  setWinnerNonce,
+  setVisible,
+  setLoading
 ) => {
   console.log("winner bid", bid);
   console.log("winner nonce", nonce);
@@ -80,6 +82,8 @@ const submitWinnerInfoIntoBC = async (
       setWinnerAddress(address);
       setWinnerBid(bidInGWei);
       setWinnerNonce(nonce);
+      setLoading(false);
+      setVisible(false);
       setStepsState(stepsState + 1);
     });
 };

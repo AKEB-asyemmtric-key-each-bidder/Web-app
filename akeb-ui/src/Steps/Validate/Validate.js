@@ -6,7 +6,6 @@ import fetchWinnerFromBackEnd, {
   fetchWinnerAddressFromBC,
   fetchWinnerBidFromBC,
   fetchWinnerNonceFromBC,
-  submitWinnerInfoIntoBC,
 } from "./Networks";
 import compareBidWithWinnerValue from "./Logic";
 import BidsContext from "../../Context/BidsContext";
@@ -81,17 +80,6 @@ const Validate = () => {
 
   useEffect(() => {
     bidderPosition == 1 && setSubmitWinnerModalVisible(true);
-    // submitWinnerInfoIntoBC(
-    //   contract,
-    //   bid,
-    //   address,
-    //   nonce,
-    //   setStepsState,
-    //   stepsState,
-    //   setWinnerAddress,
-    //   setWinnerBid,
-    //   setWinnerNonce
-    // );
   }, [bidderPosition]);
 
   return (
