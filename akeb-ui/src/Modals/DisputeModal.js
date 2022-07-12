@@ -1,18 +1,28 @@
 import { Divider, Modal, Tag, Typography } from "antd";
 import React, { useContext, useState } from "react";
 import BidsContext from "../Context/BidsContext";
+import BlockchainContext from "../Context/BlockchainContext";
+import disputeRequestNetwork from "../Networks/DisputeRequestNetwork";
 
 const { Paragraph } = Typography;
 
 const DisputeModal = ({ disputeModalVisible, setDisputeModalVisible }) => {
   const { nonce, bid } = useContext(BidsContext);
+  const { contract, address } = useContext(BlockchainContext);
   const [loading, setLoading] = useState(false);
   const onClose = () => {
     setDisputeModalVisible(false);
   };
 
   const okClicked = () => {
-    setLoading(true);
+    disputeRequestNetwork(
+      contract,
+      bid,
+      nonce,
+      address,
+      setDisputeModalVisible,
+      null
+    );
   };
 
   return (

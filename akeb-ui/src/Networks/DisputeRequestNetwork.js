@@ -15,7 +15,9 @@ const disputeRequestNetwork = async (
         return;
       }
       setVisible(false);
-      setBidderPosition(0);
+      if (setBidderPosition) {
+        setBidderPosition(0);
+      }
     });
 };
 
