@@ -46,9 +46,8 @@ const MethodologyModal = ({
             testnet)
           </li>
           <li>
-            AWS (Amazon Web Service): for calculating the winner (Please note
-            that only bid numbers are passed to AWS and is deleted upon
-            completion)
+            Django (Backend): for calculating the winner (Please note that only
+            bid numbers are passed to Django and is deleted upon completion)
           </li>
         </ul>
       </Paragraph>
