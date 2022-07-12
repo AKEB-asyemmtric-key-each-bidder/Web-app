@@ -4,11 +4,13 @@ import { Table } from "antd";
 const ViewDisputedListTable = () => {
   const data = [
     {
+      key: 1,
       address: "0xsfdljfdsljflsj",
       nonce: "my nonce",
       bid: "0.000087",
     },
     {
+      key: 2,
       address: "0xffddccccss",
       nonce: "my nonce3",
       bid: "0.000056",
