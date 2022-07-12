@@ -11,6 +11,7 @@ import fetchWinnerFromBackEnd, {
 import compareBidWithWinnerValue from "./Logic";
 import BidsContext from "../../Context/BidsContext";
 import BlockchainContext from "../../Context/BlockchainContext";
+import SubmitWinnerModal from "../../Modals/SubmitWinnerModal";
 
 const Validate = () => {
   const { stepsState, setStepsState } = useContext(StepStateContext);
@@ -26,6 +27,9 @@ const Validate = () => {
   } = useContext(BidsContext);
   const [winnerValue, setWinnerValue] = useState();
   const [loading, setLoading] = useState(false);
+  const [submitWinnerModalVisible, setSubmitWinnerModalVisible] = useState(
+    false
+  );
 
   // 0: winnerValue > bid
   // 1 : winnerValue == bid
@@ -76,36 +80,42 @@ const Validate = () => {
   }, [winnerNonce]);
 
   useEffect(() => {
-    bidderPosition == 1 &&
-      submitWinnerInfoIntoBC(
-        contract,
-        bid,
-        address,
-        nonce,
-        setStepsState,
-        stepsState,
-        setWinnerAddress,
-        setWinnerBid,
-        setWinnerNonce
-      );
+    bidderPosition == 1 && setSubmitWinnerModalVisible(true);
+    // submitWinnerInfoIntoBC(
+    //   contract,
+    //   bid,
+    //   address,
+    //   nonce,
+    //   setStepsState,
+    //   stepsState,
+    //   setWinnerAddress,
+    //   setWinnerBid,
+    //   setWinnerNonce
+    // );
   }, [bidderPosition]);
 
   return (
-    <Result
-      icon={<ExperimentFilled spin={loading} />}
-      title="Calculating the winner & validating it..."
-      subTitle={`Seconds remaining: 10`}
-      extra={
-        <Button
-          loading={loading}
-          size="large"
-          type="primary"
-          onClick={validateClicked}
-        >
-          Validate
-        </Button>
-      }
-    />
+    <React.Fragment>
+      <Result
+        icon={<ExperimentFilled spin={loading} />}
+        title="Calculating the winner & validating it..."
+        subTitle={`Seconds remaining: 10`}
+        extra={
+          <Button
+            loading={loading}
+            size="large"
+            type="primary"
+            onClick={validateClicked}
+          >
+            Validate
+          </Button>
+        }
+      />
+      <SubmitWinnerModal
+        visible={submitWinnerModalVisible}
+        setVisible={setSubmitWinnerModalVisible}
+      />
+    </React.Fragment>
   );
 };
 

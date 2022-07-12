@@ -40,6 +40,7 @@ const Connect = () => {
 
   const getAccounts = async () => {
     const addresses = await web3.eth.getAccounts();
+    console.log("addresses", addresses);
     setAddress(addresses[0]);
   };
 
