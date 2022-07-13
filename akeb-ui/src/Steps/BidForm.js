@@ -33,14 +33,14 @@ const BidForm = () => {
   // };
 
   // To be uncommented in the final version
-  // useEffect(() => {
-  //   bid && encryptBid();
-  // }, [bid]);
-
-  // To be removed in the final version
   useEffect(() => {
-    bid && submitBidIntoBackend();
+    bid && encryptBid();
   }, [bid]);
+
+  // // To be removed in the final version
+  // useEffect(() => {
+  //   bid && submitBidIntoBackend();
+  // }, [bid]);
 
   const encryptBid = () => {
     const res = CryptoJS.SHA256(bid + nonce).toString();
@@ -57,7 +57,7 @@ const BidForm = () => {
       .send({ from: address }, (error, res) => {
         setLoading(false);
         if (error) {
-          console.log("error in submitting encoded bid", error);
+          console.error("error in submitting encoded bid", error);
           return;
         }
         submitBidIntoBackend();
@@ -69,7 +69,7 @@ const BidForm = () => {
     const body = { bid: bid };
     axios.post(url, body).then((res, error) => {
       if (error) {
-        console.log("error in submitting bids into backend", error);
+        console.error("error in submitting bids into backend", error);
         return;
       }
       setStepsState(stepsState + 1);
