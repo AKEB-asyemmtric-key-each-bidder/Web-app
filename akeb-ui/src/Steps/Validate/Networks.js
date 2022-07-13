@@ -28,7 +28,9 @@ const fetchWinnerBidFromBC = async (contract, intervalID, setWinnerBid) => {
       console.log("Error in fetching winner bid in BC", error);
       return;
     }
-    if (res !== 0) {
+    console.log("res", res);
+    if (res !== "0") {
+      console.log("in if");
       clearInterval(intervalID);
       setWinnerBid(res);
     }
