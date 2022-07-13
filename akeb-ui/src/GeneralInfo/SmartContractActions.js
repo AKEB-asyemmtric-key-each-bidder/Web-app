@@ -1,6 +1,7 @@
 import { Button, Card } from "antd";
 import React, { useContext, useState } from "react";
 import BlockchainContext from "../Context/BlockchainContext";
+import GasCostModal from "../Modals/GasCostsModal";
 import ViewDisputedListModal from "../Modals/ViewDisputedListModal";
 import resetSmartContract from "../Networks/ResetSM";
 
@@ -11,6 +12,7 @@ const SmartContractActions = () => {
     viewDisputedListModalVisible,
     setViewDisputedListModalVisible,
   ] = useState(false);
+  const [gasCostModalVisible, setGasCostModalVisible] = useState(false);
 
   const resetClicked = () => {
     setLoading(true);
@@ -19,6 +21,10 @@ const SmartContractActions = () => {
 
   const viewDisputedListClicked = () => {
     setViewDisputedListModalVisible(true);
+  };
+
+  const gasCostClicked = () => {
+    setGasCostModalVisible(true);
   };
 
   return (
@@ -60,6 +66,19 @@ const SmartContractActions = () => {
             </li>
           </>
         )}
+        <li>
+          <Button
+            type="link"
+            style={{ paddingLeft: "0px" }}
+            onClick={gasCostClicked}
+          >
+            Gas costs
+          </Button>
+          <GasCostModal
+            visible={gasCostModalVisible}
+            setVisible={setGasCostModalVisible}
+          />
+        </li>
       </ul>
     </Card>
   );
