@@ -92,8 +92,8 @@ const Validate = () => {
     <React.Fragment>
       <Result
         icon={<ExperimentFilled spin={loading} />}
-        title="Calculating the winner & validating it..."
-        subTitle={`Seconds remaining: 10`}
+        title="Receiving the winner & validating it..."
+        subTitle="Meta mask screen will pop up depending on your status"
         extra={
           <Button
             loading={loading}
