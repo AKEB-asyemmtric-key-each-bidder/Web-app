@@ -25,12 +25,10 @@ const fetchWinnerFromBackEnd = (setWinnerValue, timeOutID) => {
 const fetchWinnerBidFromBC = async (contract, intervalID, setWinnerBid) => {
   await contract.methods.getWinnerBid().call((error, res) => {
     if (error) {
-      console.log("Error in fetching winner bid in BC", error);
+      console.error("Error in fetching winner bid in BC", error);
       return;
     }
-    console.log("res", res);
     if (res !== "0") {
-      console.log("in if");
       clearInterval(intervalID);
       setWinnerBid(res);
     }
