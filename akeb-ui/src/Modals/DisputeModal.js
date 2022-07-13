@@ -15,13 +15,15 @@ const DisputeModal = ({ disputeModalVisible, setDisputeModalVisible }) => {
   };
 
   const okClicked = () => {
+    setLoading(true);
     disputeRequestNetwork(
       contract,
       bid,
       nonce,
       address,
       setDisputeModalVisible,
-      null
+      null,
+      setLoading
     );
   };
 

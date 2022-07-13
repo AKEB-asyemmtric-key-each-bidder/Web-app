@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
 import BlockchainContext from "../Context/BlockchainContext";
 import ViewDisputedListTable from "../Tables/ViewDisputedListTable";
 import fetchListOfDisputers from "../Networks/FetchListOfDisputers";

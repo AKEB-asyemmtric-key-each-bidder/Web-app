@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { Button, Image, Layout, Menu, Typography } from "antd";
+import { Button, Image, Layout, Menu } from "antd";
 import Logo from "../Statics/Images/Logo.png";
 
 import "../Statics/Styles/Styles.css";
 import AboutMeModal from "../Modals/AboutMeModal";
 import MethodologyModal from "../Modals/MethodologyModal";
 
-const { Text } = Typography;
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const AuctionSkeleton = ({ children }) => {
   const [isAboutMeModalVisible, setIsAboutMeModalVisible] = useState(false);

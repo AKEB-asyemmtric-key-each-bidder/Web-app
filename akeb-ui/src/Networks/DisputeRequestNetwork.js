@@ -4,7 +4,8 @@ const disputeRequestNetwork = async (
   nonce,
   address,
   setVisible,
-  setBidderPosition
+  setBidderPosition,
+  setLoading
 ) => {
   let bidInGwei = bid * 1000 * 1000 * 1000;
   await contract.methods
@@ -14,6 +15,7 @@ const disputeRequestNetwork = async (
         console.error("error in disputing", error);
         return;
       }
+      setLoading(false);
       setVisible(false);
       if (setBidderPosition) {
         setBidderPosition(0);

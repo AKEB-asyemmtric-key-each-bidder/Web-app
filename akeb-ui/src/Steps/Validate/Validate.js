@@ -17,7 +17,6 @@ const Validate = () => {
   const { stepsState, setStepsState } = useContext(StepStateContext);
   const {
     bid,
-    nonce,
     winnerBid,
     setWinnerBid,
     winnerAddress,
@@ -37,7 +36,7 @@ const Validate = () => {
   // 2: winnerValue < bid
   const [bidderPosition, setBidderPosition] = useState();
 
-  const { contract, address } = useContext(BlockchainContext);
+  const { contract } = useContext(BlockchainContext);
 
   const validateClicked = () => {
     setLoading(true);
@@ -53,13 +52,13 @@ const Validate = () => {
   };
 
   useEffect(() => {
-    winnerValue != -1000 &&
+    winnerValue !== -1000 &&
       winnerValue &&
       compareBidWithWinnerValue(winnerValue, bid, setBidderPosition);
   }, [winnerValue]);
 
   useEffect(() => {
-    bidderPosition == 0 && performBCLoop();
+    bidderPosition === 0 && performBCLoop();
   });
 
   const performBCLoop = () => {
@@ -82,11 +81,11 @@ const Validate = () => {
   }, [winnerNonce]);
 
   useEffect(() => {
-    bidderPosition == 1 && setSubmitWinnerModalVisible(true);
+    bidderPosition === 1 && setSubmitWinnerModalVisible(true);
   }, [bidderPosition]);
 
   useEffect(() => {
-    bidderPosition == 2 && setDisputeModalVisible(true);
+    bidderPosition === 2 && setDisputeModalVisible(true);
   }, [bidderPosition]);
 
   return (
