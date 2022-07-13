@@ -11,7 +11,7 @@ const GeneralInfo = () => {
 
   return (
     <Row gutter={[8, 8]}>
-      <Col span={12}>
+      <Col span={24}>
         <GeneralInfoCard title="Address" value={address} />
       </Col>
       <Col span={12}>
@@ -20,13 +20,10 @@ const GeneralInfo = () => {
       <Col span={12}>
         <GeneralInfoCard title="Bid" value={bid} suffix="Ether" />
       </Col>
-      <Col span={12}>
+      <Col span={24}>
         <GeneralInfoCard title="Encoded value" value={encodedBid} />
       </Col>
-      <Col span={12}>
-        <GeneralInfoCard title="Dispute" value="No" />
-      </Col>
-      <Col span={12}>
+      <Col span={24}>
         <SmartContractActions />
       </Col>
     </Row>
