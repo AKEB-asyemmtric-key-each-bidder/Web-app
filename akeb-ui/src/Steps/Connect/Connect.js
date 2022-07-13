@@ -61,6 +61,7 @@ const Connect = () => {
     <Result
       icon={<WalletFilled />}
       title="Please connect your Metamask wallet"
+      subTitle="Metamask screen will pop up"
       extra={
         <Button type="primary" onClick={onConnectHandler} size="large">
           Connect your wallet

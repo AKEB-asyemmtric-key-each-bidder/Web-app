@@ -11,12 +11,8 @@ const Enter = () => {
   const [loading, setLoading] = useState(false);
 
   const onEnterHandler = () => {
-    // To be uncommented in the final version
-    // registerBidderOnBC();
+    registerBidderOnBC();
     setLoading(true);
-
-    // To be removed in final version
-    registerBidderOnBackEnd();
   };
 
   const registerBidderOnBC = async () => {
@@ -26,7 +22,7 @@ const Enter = () => {
         setLoading(false);
 
         if (error) {
-          console.log("error in registering bidder smart contract", error);
+          console.error("error in registering bidder smart contract", error);
           return;
         }
 
@@ -38,11 +34,9 @@ const Enter = () => {
     let url = "http://127.0.0.1:8000/increment-number-of-bidders/";
     axios.get(url).then((res, error) => {
       if (error) {
-        console.log("error", error);
+        console.error("error", error);
       }
       setStepsState(stepsState + 1);
-
-      console.log("res", res);
     });
   };
 
@@ -50,6 +44,7 @@ const Enter = () => {
     <Result
       icon={<RightCircleFilled />}
       title="Ready to enter the auction?"
+      subTitle="Metamask screen will pop up"
       extra={
         <Button
           type="primary"
