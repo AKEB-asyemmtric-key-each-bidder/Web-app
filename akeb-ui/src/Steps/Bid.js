@@ -8,7 +8,13 @@ const Bid = () => {
     <Result
       icon={<DollarCircleFilled />}
       title="Please enter your bid"
-      subTitle="Combination of bid and nonce will be hashed (SHA256) and submitted to the blockchain"
+      subTitle={
+        <p>
+          Combination of bid and nonce will be hashed (SHA256) and submitted to
+          the blockchain.
+          <br /> Metamask screen will pop up.
+        </p>
+      }
       extra={<BidForm />}
     />
   );
