@@ -23,6 +23,10 @@ const GasCostModal = ({ visible, setVisible }) => {
       <Divider />
       <ul>
         <li>
+          Deploy smart contract into Rinkeby testnet : <Tag>0.00387 Ether</Tag>
+        </li>
+        <Divider />
+        <li>
           Register bidder : <Tag>0.00018224 Ether</Tag>
         </li>
         <Divider />
