@@ -39,7 +39,7 @@ const MethodologyModal = ({
         <ul>
           <li>
             Reactjs: for designing and developing UI (user interface) and
-            validating AWS
+            validating Backend
           </li>
           <li>
             Smart contract: for storing all data in a secure manner (Rinkeby
