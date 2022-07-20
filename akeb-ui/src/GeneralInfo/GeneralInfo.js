@@ -21,7 +21,10 @@ const GeneralInfo = () => {
         <GeneralInfoCard title="Bid" value={bid} suffix="Ether" />
       </Col>
       <Col span={24}>
-        <GeneralInfoCard title="Encoded value" value={encodedBid} />
+        <GeneralInfoCard
+          title="Encoded value (submitted to blockchain)"
+          value={encodedBid}
+        />
       </Col>
       <Col span={24}>
         <SmartContractActions />
