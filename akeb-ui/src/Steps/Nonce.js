@@ -8,42 +8,30 @@ const Nonce = () => {
   const { setNonce } = useContext(BidsContext);
   const { stepsState, setStepsState } = useContext(StepStateContext);
 
-  const onFinish = (values) => {
-    const input = values["nonce"];
-    setNonce(input);
-    setStepsState(stepsState + 1);
+  // const onFinish = (values) => {
+  //   const input = values["nonce"];
+  //   setNonce(input);
+  //   setStepsState(stepsState + 1);
+  // };
+
+  const generateClicked = () => {
+    console.log("Generate clicked");
   };
 
-  const NonceForm = () => {
+  const NonceButton = () => {
     return (
-      <Form layout="vertical" name="passphraseForm" onFinish={onFinish}>
-        <Form.Item
-          label="Enter your nonce"
-          name="nonce"
-          rules={[
-            {
-              required: true,
-              message: "Nonce is required",
-            },
-          ]}
-        >
-          <Input.Password />
-        </Form.Item>
-        <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
-      </Form>
+      <Button type="primary" size="large" onClick={generateClicked}>
+        Generate
+      </Button>
     );
   };
 
   return (
     <Result
       icon={<InteractionFilled rotate={90} />}
-      title="Please enter your nonce"
+      title="Please generate your nonce"
       subTitle="Nonce will be added to bid for randomizing value and making it harder to guess"
-      extra={<NonceForm />}
+      extra={<NonceButton />}
     />
   );
 };
