@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { InteractionFilled } from "@ant-design/icons";
 import BidsContext from "../Context/BidsContext";
 import StepStateContext from "../Context/StepStateContext";
+import generateNonce from "../Logics/GenerateNonce";
 
 const Nonce = () => {
   const { setNonce } = useContext(BidsContext);
@@ -15,7 +16,9 @@ const Nonce = () => {
   // };
 
   const generateClicked = () => {
-    console.log("Generate clicked");
+    const res = generateNonce();
+    setNonce(res);
+    setStepsState(stepsState + 1);
   };
 
   const NonceButton = () => {
