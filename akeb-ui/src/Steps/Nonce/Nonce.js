@@ -17,7 +17,7 @@ const Nonce = () => {
 
   return (
     <Row justify="center">
-      <Col span={24}>
+      <Col span={18}>
         {automatedNonce ? <GeneratedNonce /> : <ManualNonce />}
       </Col>
       <Col span={24} style={{ textAlign: "center" }}>
