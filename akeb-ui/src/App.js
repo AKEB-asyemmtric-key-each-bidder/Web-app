@@ -9,7 +9,7 @@ import StepStateContext from "./Context/StepStateContext";
 import Bid from "./Steps/Bid";
 import Validate from "./Steps/Validate/Validate";
 import End from "./Steps/End/End";
-import Nonce from "./Steps/Nonce";
+import Nonce from "./Steps/Nonce/Nonce";
 import BlockchainContext from "./Context/BlockchainContext";
 import BidsContext from "./Context/BidsContext";
 import AuctionSkeleton from "./Skeleton/AuctionSkeleton";

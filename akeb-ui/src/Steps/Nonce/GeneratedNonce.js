@@ -1,19 +1,13 @@
-import { Button, Form, Input, Result } from "antd";
 import React, { useContext } from "react";
+import { Button, Result } from "antd";
 import { InteractionFilled } from "@ant-design/icons";
-import BidsContext from "../Context/BidsContext";
-import StepStateContext from "../Context/StepStateContext";
-import generateNonce from "../Logics/GenerateNonce";
+import BidsContext from "../../Context/BidsContext";
+import StepStateContext from "../../Context/StepStateContext";
+import generateNonce from "../../Logics/GenerateNonce";
 
-const Nonce = () => {
+const GeneratedNonce = () => {
   const { setNonce } = useContext(BidsContext);
   const { stepsState, setStepsState } = useContext(StepStateContext);
-
-  // const onFinish = (values) => {
-  //   const input = values["nonce"];
-  //   setNonce(input);
-  //   setStepsState(stepsState + 1);
-  // };
 
   const generateClicked = () => {
     const res = generateNonce();
@@ -39,4 +33,4 @@ const Nonce = () => {
   );
 };
 
-export default Nonce;
+export default GeneratedNonce;
