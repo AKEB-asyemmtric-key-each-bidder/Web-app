@@ -14,10 +14,10 @@ const GeneralInfo = () => {
       <Col span={24}>
         <GeneralInfoCard title="Address" value={address} />
       </Col>
-      <Col span={12}>
+      <Col span={14}>
         <GeneralInfoCard title="Nonce" value={nonce} />
       </Col>
-      <Col span={12}>
+      <Col span={10}>
         <GeneralInfoCard title="Bid" value={bid} suffix="Ether" />
       </Col>
       <Col span={24}>
