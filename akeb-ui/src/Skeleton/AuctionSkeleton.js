@@ -5,12 +5,14 @@ import Logo from "../Statics/Images/Logo.png";
 import "../Statics/Styles/Styles.css";
 import AboutMeModal from "../Modals/AboutMeModal";
 import MethodologyModal from "../Modals/MethodologyModal";
+import AssetInfoModal from "../Modals/AssetInfoModal";
 
 const { Header, Content } = Layout;
 
 const AuctionSkeleton = ({ children }) => {
   const [isAboutMeModalVisible, setIsAboutMeModalVisible] = useState(false);
   const [methodologyModalVisible, setMethodologyModalVisible] = useState(false);
+  const [assetInfoModalVisible, setAssetInfoModalVisible] = useState(false);
 
   const aboutMeClicked = () => {
     setIsAboutMeModalVisible(true);
@@ -18,6 +20,10 @@ const AuctionSkeleton = ({ children }) => {
 
   const methodClicked = () => {
     setMethodologyModalVisible(true);
+  };
+
+  const assetInfoClicked = () => {
+    setAssetInfoModalVisible(true);
   };
 
   return (
@@ -61,6 +67,20 @@ const AuctionSkeleton = ({ children }) => {
               <AboutMeModal
                 isAboutMeModalVisible={isAboutMeModalVisible}
                 setIsAboutMeModalVisible={setIsAboutMeModalVisible}
+              />
+            </Menu.Item>
+            <Menu.Item
+              key="2"
+              style={{
+                float: "right",
+              }}
+            >
+              <Button type="link" onClick={assetInfoClicked}>
+                Asset
+              </Button>
+              <AssetInfoModal
+                visible={assetInfoModalVisible}
+                setVisible={setAssetInfoModalVisible}
               />
             </Menu.Item>
           </div>
