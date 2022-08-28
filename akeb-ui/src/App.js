@@ -4,7 +4,7 @@ import { Col, Row } from "antd";
 import "antd/dist/antd.css";
 import StepsBar from "./StepsBar";
 import Connect from "./Steps/Connect/Connect";
-import Enter from "./Steps/Enter";
+import Enter from "./Steps/Enter/Enter";
 import StepStateContext from "./Context/StepStateContext";
 import Bid from "./Steps/Bid";
 import Validate from "./Steps/Validate/Validate";

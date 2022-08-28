@@ -2,9 +2,9 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import { Button, Result, Space } from "antd";
 import { RightCircleFilled } from "@ant-design/icons";
-import StepStateContext from "../Context/StepStateContext";
-import BlockchainContext from "../Context/BlockchainContext";
-import EnterAssetModal from "../Modals/EnterAssetInfoModal";
+import StepStateContext from "../../Context/StepStateContext";
+import BlockchainContext from "../../Context/BlockchainContext";
+import EnterAssetModal from "../../Modals/EnterAssetInfoModal";
 
 const Enter = () => {
   const { stepsState, setStepsState } = useContext(StepStateContext);
