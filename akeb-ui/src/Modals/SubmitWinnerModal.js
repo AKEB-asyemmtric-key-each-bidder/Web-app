@@ -8,7 +8,7 @@ import StepStateContext from "../Context/StepStateContext";
 
 const { Paragraph } = Typography;
 
-const SubmitWinnerModal = ({ visible, setVisible }) => {
+const SubmitWinnerModal = ({ visible, setVisible, setBidderPosition }) => {
   const { stepsState, setStepsState } = useContext(StepStateContext);
   const { address, contract } = useContext(BlockchainContext);
   const {
@@ -33,7 +33,8 @@ const SubmitWinnerModal = ({ visible, setVisible }) => {
       setWinnerBid,
       setWinnerNonce,
       setVisible,
-      setLoading
+      setLoading,
+      setBidderPosition
     );
   };
 

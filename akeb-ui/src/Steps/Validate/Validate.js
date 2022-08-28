@@ -3,6 +3,7 @@ import { ExperimentFilled } from "@ant-design/icons";
 import { Button, Result } from "antd";
 import StepStateContext from "../../Context/StepStateContext";
 import fetchWinnerFromBackEnd, {
+  fetchAllWinnerFromBC,
   fetchWinnerAddressFromBC,
   fetchWinnerBidFromBC,
   fetchWinnerNonceFromBC,
@@ -23,6 +24,8 @@ const Validate = () => {
     setWinnerAddress,
     winnerNonce,
     setWinnerNonce,
+    winners,
+    setWinners,
   } = useContext(BidsContext);
   const [winnerValue, setWinnerValue] = useState();
   const [loading, setLoading] = useState(false);
@@ -59,26 +62,31 @@ const Validate = () => {
 
   useEffect(() => {
     bidderPosition === 0 && performBCLoop();
-  });
+  }, [bidderPosition]);
 
   const performBCLoop = () => {
     console.log("In BC loop");
     const intervalID = setInterval(() => {
-      fetchWinnerBidFromBC(contract, intervalID, setWinnerBid);
+      fetchAllWinnerFromBC(contract, intervalID, setWinners);
     }, 3000);
+    return () => clearInterval(intervalID);
   };
 
-  useEffect(() => {
-    winnerBid && fetchWinnerAddressFromBC(contract, setWinnerAddress);
-  }, [winnerBid]);
+  // useEffect(() => {
+  //   winnerBid && fetchWinnerAddressFromBC(contract, setWinnerAddress);
+  // }, [winnerBid]);
+
+  // useEffect(() => {
+  //   winnerAddress && fetchWinnerNonceFromBC(contract, setWinnerNonce);
+  // }, [winnerAddress]);
+
+  // useEffect(() => {
+  //   winnerNonce && setStepsState(stepsState + 1);
+  // }, [winnerNonce]);
 
   useEffect(() => {
-    winnerAddress && fetchWinnerNonceFromBC(contract, setWinnerNonce);
-  }, [winnerAddress]);
-
-  useEffect(() => {
-    winnerNonce && setStepsState(stepsState + 1);
-  }, [winnerNonce]);
+    winners.length != 0 && setStepsState(stepsState + 1);
+  }, [winners]);
 
   useEffect(() => {
     bidderPosition === 1 && setSubmitWinnerModalVisible(true);
@@ -108,6 +116,7 @@ const Validate = () => {
       <SubmitWinnerModal
         visible={submitWinnerModalVisible}
         setVisible={setSubmitWinnerModalVisible}
+        setBidderPosition={setBidderPosition}
       />
       <DisputeMandatoryModal
         visible={disputeModalVisible}

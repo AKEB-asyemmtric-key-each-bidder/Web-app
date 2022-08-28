@@ -217,6 +217,36 @@ const AKEBAbi = [
     type: "function",
   },
   {
+    inputs: [],
+    name: "getAllWinners",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "address",
+            name: "winnerAddress",
+            type: "address",
+          },
+          {
+            internalType: "uint256",
+            name: "bid",
+            type: "uint256",
+          },
+          {
+            internalType: "string",
+            name: "nonce",
+            type: "string",
+          },
+        ],
+        internalType: "struct AKEB.winner[]",
+        name: "",
+        type: "tuple[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
     inputs: [
       {
         internalType: "uint256",
@@ -269,68 +299,6 @@ const AKEBAbi = [
   },
   {
     inputs: [],
-    name: "getWinner",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-      {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "getWinnerAddress",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "getWinnerBid",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "getwinnerNonce",
-    outputs: [
-      {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
     name: "minBidPrice",
     outputs: [
       {
@@ -356,38 +324,28 @@ const AKEBAbi = [
     type: "function",
   },
   {
-    inputs: [],
-    name: "winnerAddress",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "winnerBid",
-    outputs: [
+    inputs: [
       {
         internalType: "uint256",
         name: "",
         type: "uint256",
       },
     ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "winnerNonce",
+    name: "winners",
     outputs: [
       {
+        internalType: "address",
+        name: "winnerAddress",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "bid",
+        type: "uint256",
+      },
+      {
         internalType: "string",
-        name: "",
+        name: "nonce",
         type: "string",
       },
     ],
@@ -399,7 +357,7 @@ const AKEBAbi = [
 const createAKEBContract = (web3) => {
   return new web3.eth.Contract(
     AKEBAbi,
-    "0x340cAbE162eA92b1CcBADb6eBf696369b2148798"
+    "0xa9F6E5595E54eB191dBBb2423C3333f5B9C495fd"
   );
 };
 

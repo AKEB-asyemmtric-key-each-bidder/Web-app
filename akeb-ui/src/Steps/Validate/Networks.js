@@ -1,4 +1,5 @@
 import axios from "axios";
+import formWinnersData from "../../Logics/FormWinnersData";
 
 const fetchWinnerFromBackEnd = (setWinnerValue, timeOutID) => {
   console.log("in API call");
@@ -22,17 +23,45 @@ const fetchWinnerFromBackEnd = (setWinnerValue, timeOutID) => {
   });
 };
 
-const fetchWinnerBidFromBC = async (contract, intervalID, setWinnerBid) => {
+const fetchWinnerBidFromBC = async (contract, intervalID, setWinners) => {
   await contract.methods.getWinnerBid().call((error, res) => {
     if (error) {
       console.error("Error in fetching winner bid in BC", error);
       return;
     }
-    if (res !== "0") {
+    if (res.length !== 0) {
       clearInterval(intervalID);
-      setWinnerBid(res);
+      const winnersInArray = formWinnersData(res);
+      console.log("winners in array", winnersInArray);
+      setWinners(winnersInArray);
     }
-    console.log("res", res);
+    // console.log("res", res);
+  });
+};
+
+const fetchAllWinnerFromBC = async (
+  contract,
+  intervalID,
+  setWinners,
+  setLoading
+) => {
+  await contract.methods.getAllWinners().call((error, res) => {
+    if (error) {
+      console.error("Error in getting all winners", error);
+    }
+    if (intervalID) {
+      if (res.length !== 0) {
+        clearInterval(intervalID);
+        const winnersInArray = formWinnersData(res);
+        console.log("winners in array", winnersInArray);
+        setWinners(winnersInArray);
+      }
+    } else {
+      const winnersInArray = formWinnersData(res);
+      console.log("winners in array", winnersInArray);
+      setWinners(winnersInArray);
+      setLoading(false);
+    }
   });
 };
 
@@ -67,7 +96,8 @@ const submitWinnerInfoIntoBC = async (
   setWinnerBid,
   setWinnerNonce,
   setVisible,
-  setLoading
+  setLoading,
+  setBidderPosition
 ) => {
   console.log("winner bid", bid);
   console.log("winner nonce", nonce);
@@ -79,17 +109,19 @@ const submitWinnerInfoIntoBC = async (
         console.log("error in sending winner info to BC", error);
         return;
       }
-      setWinnerAddress(address);
-      setWinnerBid(bidInGWei);
-      setWinnerNonce(nonce);
+      // setWinnerAddress(address);
+      // setWinnerBid(bidInGWei);
+      // setWinnerNonce(nonce);
       setLoading(false);
       setVisible(false);
-      setStepsState(stepsState + 1);
+      // setStepsState(stepsState + 1);
+      setBidderPosition(0);
     });
 };
 
 export default fetchWinnerFromBackEnd;
 export {
+  fetchAllWinnerFromBC,
   fetchWinnerBidFromBC,
   fetchWinnerAddressFromBC,
   fetchWinnerNonceFromBC,

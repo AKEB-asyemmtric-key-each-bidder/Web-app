@@ -31,6 +31,7 @@ function App() {
   const [winnerAddress, setWinnerAddress] = useState();
   const [winnerBid, setWinnerBid] = useState();
   const [winnerNonce, setWinnerNonce] = useState();
+  const [winners, setWinners] = useState([]);
 
   const steps = [
     <Connect />,
@@ -58,6 +59,8 @@ function App() {
             setWinnerBid,
             winnerNonce,
             setWinnerNonce,
+            winners,
+            setWinners,
           }}
         >
           <BlockchainContext.Provider
