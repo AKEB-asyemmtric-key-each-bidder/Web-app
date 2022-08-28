@@ -32,7 +32,7 @@ function App() {
   const [winnerBid, setWinnerBid] = useState();
   const [winnerNonce, setWinnerNonce] = useState();
   const [winners, setWinners] = useState([]);
-  const [asset, setAsset] = useState({});
+  const [asset, setAsset] = useState();
 
   const steps = [
     <Connect />,

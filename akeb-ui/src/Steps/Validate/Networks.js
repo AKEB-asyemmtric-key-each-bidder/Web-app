@@ -119,6 +119,28 @@ const submitWinnerInfoIntoBC = async (
     });
 };
 
+const submitAssetInfoIntoBC = async (
+  asset,
+  setVisible,
+  setStepsState,
+  setLoading,
+  contract,
+  address
+) => {
+  const assetName = asset["name"];
+  const assetDescription = asset["description"];
+  await contract.methods
+    .registerAuctionInfo(assetName, assetDescription)
+    .send({ from: address }, (error, res) => {
+      if (error) {
+        console.error("error in registering autction info", error);
+      }
+      setLoading(false);
+      setVisible(false);
+      setStepsState(5);
+    });
+};
+
 export default fetchWinnerFromBackEnd;
 export {
   fetchAllWinnerFromBC,
@@ -126,4 +148,5 @@ export {
   fetchWinnerAddressFromBC,
   fetchWinnerNonceFromBC,
   submitWinnerInfoIntoBC,
+  submitAssetInfoIntoBC,
 };
