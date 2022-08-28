@@ -1,4 +1,5 @@
-import { Modal } from "antd";
+import { Divider, Modal, Statistic } from "antd";
+import { SketchOutlined } from "@ant-design/icons";
 import React from "react";
 
 const AssetInfoModal = ({ visible, setVisible }) => {
@@ -14,7 +15,16 @@ const AssetInfoModal = ({ visible, setVisible }) => {
       footer={null}
       title="Asset Information"
     >
-      Asset info
+      <Statistic
+        title="Name"
+        value="Watch"
+        prefix={<SketchOutlined style={{ color: "blue" }} />}
+      />
+      <Divider />
+      <Statistic
+        title="Description"
+        value="Omega watch and great for your day!"
+      />
     </Modal>
   );
 };
