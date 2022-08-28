@@ -1,7 +1,10 @@
 import React from "react";
-import { Modal } from "antd";
+import { Form, Modal } from "antd";
+import EnterAssetInfoForm from "../Steps/Enter/EnterAssetInfoForm";
 
 const EnterAssetModal = ({ visible, setVisible }) => {
+  const [form] = Form.useForm();
+
   const cancelClicked = () => {
     setVisible(false);
   };
@@ -13,7 +16,7 @@ const EnterAssetModal = ({ visible, setVisible }) => {
       title="Enter Asset Information"
       onCancel={cancelClicked}
     >
-      Asset Modal
+      <EnterAssetInfoForm form={form} />
     </Modal>
   );
 };
