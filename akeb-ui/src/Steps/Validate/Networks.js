@@ -133,11 +133,28 @@ const submitAssetInfoIntoBC = async (
     .send({ from: address }, (error, res) => {
       if (error) {
         console.error("error in registering autction info", error);
+        return;
       }
       setLoading(false);
       setVisible(false);
       setStepsState(5);
     });
+};
+
+const fetchAssetInfoFromBC = async (contract, setAsset) => {
+  await contract.methods.getAuctionInfo().call((error, res) => {
+    if (error) {
+      console.error("error in fetching asset info", error);
+      return;
+    }
+
+    const dict = {
+      name: res[0][0],
+      description: res[0][1],
+    };
+
+    setAsset(dict);
+  });
 };
 
 export default fetchWinnerFromBackEnd;
@@ -148,4 +165,5 @@ export {
   fetchWinnerNonceFromBC,
   submitWinnerInfoIntoBC,
   submitAssetInfoIntoBC,
+  fetchAssetInfoFromBC,
 };

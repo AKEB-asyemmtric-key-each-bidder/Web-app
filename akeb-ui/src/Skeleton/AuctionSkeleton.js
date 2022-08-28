@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Image, Layout, Menu } from "antd";
 import Logo from "../Statics/Images/Logo.png";
 
@@ -6,6 +6,7 @@ import "../Statics/Styles/Styles.css";
 import AboutMeModal from "../Modals/AboutMeModal";
 import MethodologyModal from "../Modals/MethodologyModal";
 import AssetInfoModal from "../Modals/AssetInfoModal";
+import BlockchainContext from "../Context/BlockchainContext";
 
 const { Header, Content } = Layout;
 

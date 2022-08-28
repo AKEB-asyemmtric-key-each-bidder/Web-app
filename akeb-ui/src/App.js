@@ -44,36 +44,36 @@ function App() {
 
   return (
     <div style={{ background: "#F0F2F5", height: "100vh" }}>
-      <AuctionSkeleton>
-        <BidsContext.Provider
+      <BidsContext.Provider
+        value={{
+          nonce,
+          setNonce,
+          bid,
+          setBid,
+          encodedBid,
+          setEncodedBid,
+          winnerAddress,
+          setWinnerAddress,
+          winnerBid,
+          setWinnerBid,
+          winnerNonce,
+          setWinnerNonce,
+          winners,
+          setWinners,
+        }}
+      >
+        <BlockchainContext.Provider
           value={{
-            nonce,
-            setNonce,
-            bid,
-            setBid,
-            encodedBid,
-            setEncodedBid,
-            winnerAddress,
-            setWinnerAddress,
-            winnerBid,
-            setWinnerBid,
-            winnerNonce,
-            setWinnerNonce,
-            winners,
-            setWinners,
+            web3,
+            setWeb3,
+            address,
+            setAddress,
+            contract,
+            setContract,
           }}
         >
-          <BlockchainContext.Provider
-            value={{
-              web3,
-              setWeb3,
-              address,
-              setAddress,
-              contract,
-              setContract,
-            }}
-          >
-            <StepStateContext.Provider value={{ stepsState, setStepsState }}>
+          <StepStateContext.Provider value={{ stepsState, setStepsState }}>
+            <AuctionSkeleton>
               <Row gutter={[16, 16]} style={{ marginTop: "20px" }}>
                 <Col span={24}>
                   <StepsBar />
@@ -92,10 +92,10 @@ function App() {
                   <GeneralInfo />
                 </Col>
               </Row>
-            </StepStateContext.Provider>
-          </BlockchainContext.Provider>
-        </BidsContext.Provider>
-      </AuctionSkeleton>
+            </AuctionSkeleton>
+          </StepStateContext.Provider>
+        </BlockchainContext.Provider>
+      </BidsContext.Provider>
     </div>
   );
 }
