@@ -147,7 +147,6 @@ const fetchAssetInfoFromBC = async (contract, setAsset) => {
       console.error("error in fetching asset info", error);
       return;
     }
-    console.log("res of auction info", res);
     const dict = {
       name: res[0],
       description: res[1],
