@@ -22,18 +22,13 @@ const AKEBAbi = [
     inputs: [
       {
         internalType: "string",
-        name: "assetDescriptionInput",
+        name: "assetNameInput",
         type: "string",
       },
       {
-        internalType: "uint256",
-        name: "minBidPriceInput",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "minNumberOfBiddersInput",
-        type: "uint256",
+        internalType: "string",
+        name: "assetDescriptionInput",
+        type: "string",
       },
     ],
     name: "registerAuctionInfo",
@@ -96,6 +91,19 @@ const AKEBAbi = [
   {
     inputs: [],
     name: "assetDescription",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "assetName",
     outputs: [
       {
         internalType: "string",
@@ -247,6 +255,24 @@ const AKEBAbi = [
     type: "function",
   },
   {
+    inputs: [],
+    name: "getAuctionInfo",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
     inputs: [
       {
         internalType: "uint256",
@@ -279,45 +305,6 @@ const AKEBAbi = [
         internalType: "string",
         name: "",
         type: "string",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "getSampleString",
-    outputs: [
-      {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
-    ],
-    stateMutability: "pure",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "minBidPrice",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "minNumberOfBidders",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
       },
     ],
     stateMutability: "view",
@@ -357,7 +344,7 @@ const AKEBAbi = [
 const createAKEBContract = (web3) => {
   return new web3.eth.Contract(
     AKEBAbi,
-    "0xa9F6E5595E54eB191dBBb2423C3333f5B9C495fd"
+    "0xa2B9A6507E8185Ee652BB346034b5B47d581F0C4"
   );
 };
 

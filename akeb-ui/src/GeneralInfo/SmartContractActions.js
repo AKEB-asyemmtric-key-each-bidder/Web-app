@@ -32,7 +32,7 @@ const SmartContractActions = () => {
       <ul style={{ paddingLeft: "10px" }}>
         <li>
           <a
-            href="https://rinkeby.etherscan.io/address/0xa9F6E5595E54eB191dBBb2423C3333f5B9C495fd"
+            href="https://rinkeby.etherscan.io/address/0xa2B9A6507E8185Ee652BB346034b5B47d581F0C4"
             target="_blank"
             rel="noopener noreferrer"
           >
