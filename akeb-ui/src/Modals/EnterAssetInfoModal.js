@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Form, Modal } from "antd";
 import EnterAssetInfoForm from "../Steps/Enter/EnterAssetInfoForm";
+import BidsContext from "../Context/BidsContext";
 
 const EnterAssetModal = ({ visible, setVisible }) => {
   const [form] = Form.useForm();
+  const { asset, setAsset } = useContext(BidsContext);
 
   const cancelClicked = () => {
     setVisible(false);
@@ -11,9 +13,13 @@ const EnterAssetModal = ({ visible, setVisible }) => {
 
   const submitClicked = () => {
     form.validateFields().then((values) => {
-      console.log("values", values);
+      setAsset(values);
     });
   };
+
+  useEffect(() => {
+    console.log("asset", asset);
+  }, [asset]);
 
   return (
     <Modal
