@@ -8,7 +8,6 @@ import BlockchainContext from "../Context/BlockchainContext";
 
 const EnterAssetModal = ({ visible, setVisible }) => {
   const [form] = Form.useForm();
-  const { asset, setAsset } = useContext(BidsContext);
   const { setStepsState } = useContext(StepStateContext);
   const { contract, address } = useContext(BlockchainContext);
   const [loading, setLoading] = useState(false);
@@ -20,21 +19,21 @@ const EnterAssetModal = ({ visible, setVisible }) => {
   const submitClicked = () => {
     form.validateFields().then((values) => {
       setLoading(true);
-      setAsset(values);
-    });
-  };
-
-  useEffect(() => {
-    asset &&
+      const assetName = values["name"];
+      const assetDescription = values["description"];
+      console.log("asset name", assetName);
+      console.log("asset descr", assetDescription);
       submitAssetInfoIntoBC(
-        asset,
+        assetName,
+        assetDescription,
         setVisible,
         setStepsState,
         setLoading,
         contract,
         address
       );
-  }, [asset]);
+    });
+  };
 
   return (
     <Modal

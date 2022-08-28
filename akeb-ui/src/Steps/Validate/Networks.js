@@ -120,15 +120,14 @@ const submitWinnerInfoIntoBC = async (
 };
 
 const submitAssetInfoIntoBC = async (
-  asset,
+  assetName,
+  assetDescription,
   setVisible,
   setStepsState,
   setLoading,
   contract,
   address
 ) => {
-  const assetName = asset["name"];
-  const assetDescription = asset["description"];
   await contract.methods
     .registerAuctionInfo(assetName, assetDescription)
     .send({ from: address }, (error, res) => {
