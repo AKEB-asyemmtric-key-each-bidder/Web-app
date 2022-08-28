@@ -14,27 +14,30 @@ const AssetInfoModal = ({ visible, setVisible }) => {
   };
 
   useEffect(() => {
-    visible == true && fetchAssetInfoFromBC(contract, setAsset);
+    visible == true && contract && fetchAssetInfoFromBC(contract, setAsset);
   }, [visible]);
 
   return (
-    asset && (
-      <Modal
-        visible={visible}
-        setVisible={setVisible}
-        onCancel={cancelClicked}
-        footer={null}
-        title="Asset Information"
-      >
-        <Statistic
-          title="Name"
-          value={asset.name}
-          prefix={<SketchOutlined style={{ color: "blue" }} />}
-        />
-        <Divider />
-        <Statistic title="Description" value={asset.description} />
-      </Modal>
-    )
+    <Modal
+      visible={visible}
+      setVisible={setVisible}
+      onCancel={cancelClicked}
+      footer={null}
+      title="Asset Information"
+    >
+      <Statistic
+        title="Name"
+        value={asset ? asset.name : ""}
+        loading={asset ? false : true}
+        prefix={<SketchOutlined style={{ color: "blue" }} />}
+      />
+      <Divider />
+      <Statistic
+        title="Description"
+        value={asset ? asset.description : ""}
+        loading={asset ? false : true}
+      />
+    </Modal>
   );
 };
 
