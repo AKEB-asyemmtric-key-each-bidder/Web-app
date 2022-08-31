@@ -40,7 +40,8 @@ const Enter = () => {
     let url = "http://127.0.0.1:8000/increment-number-of-bidders/";
     axios.get(url).then((res, error) => {
       if (error) {
-        console.error("error", error);
+        console.error("error in registering bidder on BackEnd", error);
+        return;
       }
       setStepsState(stepsState + 1);
     });
