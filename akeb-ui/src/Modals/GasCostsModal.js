@@ -39,11 +39,11 @@ const GasCostModal = ({ visible, setVisible }) => {
         </li>
         <Divider />
         <li>
-          Submit winner information : <Tag>0.00013155 Ether</Tag>
+          Submit winner information : <Tag>0.00042 Ether</Tag>
         </li>
         <Divider />
         <li>
-          Dispute : <Tag>0.00035623 Ether</Tag>
+          Dispute : <Tag>0.00042 Ether</Tag>
         </li>
         <Divider />
         <li>
