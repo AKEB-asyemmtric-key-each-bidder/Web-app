@@ -26,7 +26,7 @@ const MethodologyModal = ({
       <Paragraph>
         You can find all transactions of this system on{" "}
         <a
-          href="https://rinkeby.etherscan.io/address/0xa2B9A6507E8185Ee652BB346034b5B47d581F0C4"
+          href="https://goerli.etherscan.io/address/0xeB63c218F12D5A33A1F8C23e8EcaBDD55Fbdaf92"
           target="_blank"
           rel="noopener noreferrer"
         >
