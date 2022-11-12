@@ -17,8 +17,7 @@ const AboutMeModal = ({ isAboutMeModalVisible, setIsAboutMeModalVisible }) => {
     >
       <Paragraph>
         My name is Ehsan Ghasaei, graduated student in Master of engineering in
-        Electrical and Computer engineering @ University of Victoria. This is my
-        Meng project.
+        Computer engineering @ University of Victoria. This is my Meng project.
       </Paragraph>
       <Divider />
       <Paragraph>
