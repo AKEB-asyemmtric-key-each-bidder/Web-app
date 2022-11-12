@@ -10,7 +10,7 @@ const AboutMeModal = ({ isAboutMeModalVisible, setIsAboutMeModalVisible }) => {
 
   return (
     <Modal
-      title="About"
+      title="About Me"
       visible={isAboutMeModalVisible}
       onCancel={onClose}
       onOk={onClose}
