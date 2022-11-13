@@ -23,7 +23,7 @@ const AssetInfoModal = ({ visible, setVisible }) => {
       setVisible={setVisible}
       onCancel={cancelClicked}
       footer={null}
-      title="Asset Information"
+      title="Asset Info"
     >
       <Statistic
         title="Name"
